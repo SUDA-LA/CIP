@@ -1,5 +1,6 @@
 # ignore data files
 data
+bigdata
 
 # ignore pycache
 __pycache__

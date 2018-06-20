@@ -4,7 +4,7 @@
 * 最大匹配分词
 * 网页正文抽取，请见2016春季学期《信息检索》课程主页
 * HMM
-* Linear Model
-* Log-linear Model
-* Global Linear Model
+* LinearModel
+* LogLinearModel
+* GlobalLinearModel
 * CRF
