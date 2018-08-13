@@ -18,6 +18,9 @@ $ git clone git@github.com:HLT-2018/CIP.git && cd CIP
 # 切换到相应的分支(假设是dev)
 $ git checkout -b dev origin/dev
 # ...
+# 主分支有变动请注意及时更新(optional)
+# $ git merge origin/master
+# ...
 # 提交代码到自己的分支(不属于你的分支无法提交)
 $ git push
 ```
