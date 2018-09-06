@@ -41,3 +41,10 @@ $ git push
 * CRF
   * [slides](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/12-crf/main.pdf)
 
+## 可选练习
+
+* BPNN
+  * 蒋炜同学的课件([slides](https://github.com/HLT-2018/CIP/blob/master/BPNN/slides/nn.pdf))
+  * 推荐阅读([英文版](http://neuralnetworksanddeeplearning.com/index.html); [中文版](https://github.com/zhanggyb/nndl/releases/download/latest/nndl-ebook.pdf))
+  * PyTorch相关学习材料([Deep Learning for NLP with Pytorch](https://pytorch.org/tutorials/beginner/deep_learning_nlp_tutorial.html))
+
