@@ -1,4 +1,4 @@
-from Tagger import Tagger
+from OptimizedTagger import Tagger
 from DataReader import DataReader
 
 # tagger = Tagger()
@@ -11,7 +11,7 @@ acc = 0
 word_count = 0
 
 for i, val in enumerate(s):
-    tag = tagger.tag(val)
+    tag = tagger.tag(val, averaged_perceptron=False)
     acc += len([index for index, v in enumerate(tag) if v == gt[i][index]])
     word_count += len(tag)
 

@@ -17,7 +17,7 @@ class Tagger:
         data = dr.get_seg_data()
         pos = dr.get_pos_data()
         data_len = len(data)
-        self.model = {'weight': {}, 'tags': set()}
+        self.model = {'weight': {}, 'tags': set(), 'v': {}}
         self._create_feature_space(data, pos)
         convergence = False
         stop_threshold = 0.0001
@@ -25,6 +25,8 @@ class Tagger:
         iter_count = 0
         learning_rate = 1
         rho = 0.9
+        update_stamp = {}
+        step = 0
         while not convergence:
             wrong_count = 0
             word_count = 0
@@ -39,16 +41,32 @@ class Tagger:
                         fp = self._extract_feature(sentence, k, predict_tag)
                         fgt = self._extract_feature(sentence, k, tag)
                         for f in fp:
+                            if f in update_stamp:
+                                self.model['v'][f] += (step - update_stamp[f] - 1) * self.model['weight'][f]
+                            else:
+                                self.model['v'][f] = 0
+                            update_stamp[f] = step
                             self.model['weight'][f] = self.model['weight'].setdefault(f, 0) - learning_rate
+                            self.model['v'][f] += self.model['weight'][f]
                         for f in fgt:
+                            if f in update_stamp:
+                                self.model['v'][f] += (step - update_stamp[f] - 1) * self.model['weight'][f]
+                            else:
+                                self.model['v'][f] = 0
+                            update_stamp[f] = step
                             self.model['weight'][f] += learning_rate
+                            self.model['v'][f] += self.model['weight'][f]
                         wrong_count += 1
 
             loss = wrong_count / word_count
             if loss < stop_threshold or iter_count > max_iter:
                 convergence = True
+                step += 1
+                for f, stamp in update_stamp.items():
+                    self.model['v'][f] += (step - update_stamp[f] - 1) * self.model['weight'][f]
                 print("train finish loss: %.6f" % loss)
             else:
+                step += 1
                 iter_count += 1
                 learning_rate *= rho
                 print("iter: %d loss: %.6f" % (iter_count, loss))
@@ -57,32 +75,36 @@ class Tagger:
         with open(model_path, 'wb') as file:
             pickle.dump(self.model, file)
 
-    def tag(self, s, index=None):
+    def tag(self, s, index=None, averaged_perceptron=False):
         assert self.model
         if index is None:
             s_len = len(s)
             tags = []
             for i in range(s_len):
-                tags.append(self._tag(s, i))
+                tags.append(self._tag(s, i, averaged_perceptron))
             return tags
         else:
-            return self._tag(s, index)
+            return self._tag(s, index, averaged_perceptron)
 
-    def _tag(self, s, index):
+    def _tag(self, s, index, averaged_perceptron=False):
         max_tag = ''
-        max_score = 0
+        max_score = float('-Inf')
         for tag in self.model["tags"]:
             fv = self._extract_feature(s, index, tag)
-            score = self._dot(fv)
+            score = self._dot(fv, averaged_perceptron)
             if score > max_score:
                 max_score = score
                 max_tag = tag
         return max_tag
 
-    def _dot(self, feature_vector):
+    def _dot(self, feature_vector, averaged_perceptron=False):
         score = 0
+        if averaged_perceptron:
+            weight = "v"
+        else:
+            weight = "weight"
         for f in feature_vector:
-            score += self.model["weight"].get(f, 0)
+            score += self.model[weight].get(f, 0)
         return score
 
     @staticmethod
@@ -122,7 +144,7 @@ class Tagger:
             if wi[k] == wi[k + 1]:
                 feature_vector.append("__@?__".join(["13:" + tag, wi[k], "__C0nsecut1ve?__"]))
 
-        for k in range(min(5, w_len + 1)):
+        for k in range(1, min(5, w_len + 1)):
             feature_vector.append("__@?__".join(["14:" + tag, wi[:k]]))
             feature_vector.append("__@?__".join(["15:" + tag, wi[-k:]]))
 
