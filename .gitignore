@@ -1,7 +1,10 @@
 # ignore data files
 data
 bigdata
+
+# ignore model files
 model
+*.pickle
 
 # ignore pycache
 __pycache__
