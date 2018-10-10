@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c27d94d1-d3fe-4129-b0ee-e8201ac41d0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../HMM/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HMM/DataReader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HMM/Tagger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HMM/demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataReader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tagger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/Segmenter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/ValUtils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/WordDictionary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../最大匹配分词/process_conll.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../汉字编码/char_counter_GBK.c" afterDir="false" />
-    </list>
+    <list default="true" id="c27d94d1-d3fe-4129-b0ee-e8201ac41d0b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +34,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="246" />
+          <entry key="Python Console" value="251" />
           <entry key="py" value="1805" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2051" />
+          <entry key="Python" value="2056" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
