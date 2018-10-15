@@ -80,7 +80,7 @@ class Tagger:
         tag_g = np.zeros((self.model.tag_size, self.model.tag_size))
         g = np.zeros((self.model.tag_size, self.model.feature_size))
         batch_size = 50
-        learning_rate = 1
+        learning_rate = 20
         b = 0
         while not convergence:
             wrong = 0
@@ -88,11 +88,12 @@ class Tagger:
             for i in range(data_len):
                 sentence = data[i]
                 s_len = len(sentence)
-                features = [self._extract_feature(sentence, k) for k in range(s_len)] + [None]
+                features = [self._extract_feature(sentence, k) for k in range(s_len)] + [self._end_feature(sentence)]
                 gt_pos = [int(t[p]) for p in pos[i]]
                 pred_pos_name, scores, alpha, beta = self.tag(sentence, with_extra=True)
-                pred_pos = [int(t[p]) for p in pred_pos_name]
                 z = np.average([alpha[s_len + 1][1], beta[0][0]])
+                shape = beta.shape
+                beta.shape = (shape[0], 1, shape[1])
                 for k in range(s_len + 1):
                     gt_k = gt_pos[k] if k < s_len else 1
                     gt_k_1 = gt_pos[k - 1] if k > 0 else 0
@@ -101,12 +102,12 @@ class Tagger:
                     g[gt_k][features[k]] += 1
 
                     update = np.exp(alpha[k] + scores[k] + np.transpose(beta[k + 1]) - z)
+                    # 0维向量无法转置
                     tag_g -= update
-                    # update_s = np.sum(update, axis=1)
+                    update_s = np.sum(update, axis=1)
 
                     for t_id in range(self.model.tag_size):
-                        for t_p in range(self.model.tag_size):
-                            g[t_id][features[k]] -= update[t_id][t_p]
+                        g[t_id][features[k]] -= update_s[t_id]
 
                     b += 1
 
@@ -114,12 +115,12 @@ class Tagger:
                     tag_weight += (learning_rate / batch_size) * tag_g
                     weight += (learning_rate / batch_size) * g
 
-                    tag_g = np.zeros((self.model.tag_size, self.model.tag_size))
-                    g = np.zeros((self.model.tag_size, self.model.feature_size))
+                    tag_g *= 0
+                    g *= 0
                     b = 0
 
                 word_count += s_len
-                wrong += len([False for i, tag in enumerate(gt_pos) if tag != pred_pos[i]])
+                wrong += len([False for i, tag in enumerate(pos[i]) if tag != pred_pos_name[i]])
 
             loss = wrong / word_count
             # loss = self.test('.\\data\\dev.conll')
@@ -148,7 +149,8 @@ class Tagger:
         t = self.model.tags
         tw = self.model.tag_weight
         t_b = self.model.tags_backward
-        features = [self._extract_feature(s, i) for i in range(s_len)] + [np.array([])]
+        features = [self._extract_feature(s, i) for i in range(s_len)] + [self._end_feature(s)]
+        # 开始的时候end_feature直接给的None (这个没什么毛病)
         scores = np.array([
             np.array([
                 self._dot(now_tag, f) +
@@ -162,15 +164,16 @@ class Tagger:
         ])
         for k in range(s_len + 1):
             alpha[k + 1] = logsumexp(scores[k] + alpha[k], axis=1)
-            beta[s_len - k] = logsumexp(scores[s_len - k] + beta[s_len - k + 1], axis=1)
-        tags = [t_b[np.argmax(alpha[i + 1])] for i in range(s_len)]
+            beta[s_len - k] = logsumexp(np.transpose(scores[s_len - k]) + beta[s_len - k + 1], axis=1)
+            # 开始的时候beta中的scores没有转置 (×)
+        tags = [t_b[np.argmax(alpha[i + 1] + beta[i + 1])] for i in range(s_len)]
         if with_extra:
             return tags, scores, alpha, beta
         else:
             return tags
 
     def _dot(self, now_tag, feature_vector):
-        if len(feature_vector) == 0:
+        if feature_vector is None or len(feature_vector) == 0:
             return 0
         else:
             return np.sum(self.model.weight[now_tag][feature_vector])
@@ -186,6 +189,19 @@ class Tagger:
                 return feature_id
             else:
                 return None
+
+    def _end_feature(self, s, new_id=False):
+        wi = "$$"
+        wim1 = s[-1]
+
+        feature_vector = [self._get_feature_id((2, wi), new_id=new_id),
+                          self._get_feature_id((3, wim1), new_id=new_id),
+                          self._get_feature_id((5, wi, wim1[-1]), new_id=new_id),
+                          self._get_feature_id((7, wi[0]), new_id=new_id),
+                          self._get_feature_id((8, wi[-1]), new_id=new_id),
+                          self._get_feature_id((13, wi[0]), new_id=new_id)]
+
+        return np.array([feature for feature in feature_vector if feature is not None])
 
     def _extract_feature(self, s, index, new_id=False):
         wi = s[index]
@@ -238,6 +254,7 @@ class Tagger:
         for i in range(data_len):
             sentence = segs[i]
             s_len = len(sentence)
+            self._end_feature(sentence, new_id=True)
             for k in range(s_len):
                 tag = tags[i][k]
                 self._extract_feature(sentence, k, new_id=True)

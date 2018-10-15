@@ -8,7 +8,7 @@ dr = DataReader('.\\data\\dev.conll')
 s = dr.get_seg_data()
 gt = dr.get_pos_data()
 
-index = range(5, 55, 5)
+index = range(5, 15, 5)
 for e in index:
     acc = 0
     word_count = 0
