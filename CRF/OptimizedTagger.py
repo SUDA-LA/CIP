@@ -142,6 +142,7 @@ class Tagger:
     def tag(self, s, with_extra=False):
         assert self.model
         s_len = len(s)
+        # 这里的alpha和beta准确地说是log(alpha)和log(beta)
         alpha = np.full((s_len + 2, self.model.tag_size), -np.inf)
         alpha[0][0] = 0
         beta = np.full((s_len + 2, self.model.tag_size), -np.inf)

@@ -14,7 +14,7 @@ for e in index:
     word_count = 0
     tagger = Tagger('.\\model\\check_point_' + str(e) + '.pickle')
     for i, val in enumerate(s):
-        tag = tagger.tag(val, averaged_perceptron=True)
+        tag = tagger.tag(val)
         acc += len([index for index, v in enumerate(tag) if v == gt[i][index]])
         word_count += len(tag)
 

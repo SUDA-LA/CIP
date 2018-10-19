@@ -2,18 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b33cb9b9-2284-40fd-a562-9d4355236c24" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Embedding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CRF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CRF.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OptimizedTagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/OptimizedTagger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/.idea/GlobalLinearModel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/.idea/GlobalLinearModel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/DataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/DataReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/OptimizedTagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/OptimizedTagger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GlobalLinearModel/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../GlobalLinearModel/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/.idea/HMM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/.idea/HMM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/DataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/DataReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/Tagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/Tagger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HMM/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../HMM/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/.idea/LinearModel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/.idea/LinearModel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/DataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/DataReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/OptimizedTagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/OptimizedTagger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/Tagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/Tagger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinearModel/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LinearModel/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogLinearModel/.idea/LogLinearModel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/.idea/LogLinearModel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogLinearModel/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogLinearModel/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LogLinearModel/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogLinearModel/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogLinearModel/DataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/DataReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogLinearModel/OptimizedTagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/OptimizedTagger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogLinearModel/Tagger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/Tagger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LogLinearModel/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LogLinearModel/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/.idea/最大匹配分词.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/.idea/最大匹配分词.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/Segmenter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/Segmenter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/ValUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/ValUtils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/WordDictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/WordDictionary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../最大匹配分词/process_conll.py" beforeDir="false" afterPath="$PROJECT_DIR$/../最大匹配分词/process_conll.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../汉字编码/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../汉字编码/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../汉字编码/char_counter_GBK.c" beforeDir="false" afterPath="$PROJECT_DIR$/../汉字编码/char_counter_GBK.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../汉字编码/char_counter_UTF8.c" beforeDir="false" afterPath="$PROJECT_DIR$/../汉字编码/char_counter_UTF8.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +76,11 @@
     <session id="-972878653">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.4" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -47,32 +95,71 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="487" />
-          <entry key="py" value="1746" />
+          <entry key="Python Console" value="523" />
+          <entry key="py" value="1804" />
           <entry key="txt" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="2233" />
+          <entry key="Python" value="2327" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.js.language.service.starts" />
     </session>
+    <session id="-1716503844">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="144" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="144" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OptimizedTagger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+            <state relative-caret-position="-142">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1539570314737" expanded="true" signature="6978:7528" ph="..." />
-                <marker date="1539570314737" expanded="true" signature="7579:7588" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Embedding.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <marker date="1539681575997" expanded="true" signature="504:556" ph="..." />
               </folding>
             </state>
           </provider>
@@ -90,7 +177,23 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataReader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="28" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -106,6 +209,9 @@
       <list>
         <option value="$PROJECT_DIR$/demo.py" />
         <option value="$PROJECT_DIR$/OptimizedTagger.py" />
+        <option value="$PROJECT_DIR$/slides/EmbeddingReader.py" />
+        <option value="$PROJECT_DIR$/EmbeddingReader.py" />
+        <option value="$PROJECT_DIR$/Embedding.py" />
       </list>
     </option>
   </component>
@@ -115,7 +221,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1400" />
@@ -127,6 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,18 +241,28 @@
               <item name="CRF" type="b2602c69:ProjectViewProjectNode" />
               <item name="CRF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CRF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CRF" type="462c0819:PsiDirectoryNode" />
+              <item name="slides" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BPNN" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -164,6 +281,9 @@
       <module name="CRF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -205,6 +325,9 @@
       <module name="CRF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -253,16 +376,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26618704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="3" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Python Console" order="3" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -276,8 +398,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" order="4" weight="0.32995737" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="5" side_tool="true" visible="true" weight="0.26279318" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.32982844" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="5" side_tool="true" visible="true" weight="0.26175982" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +427,16 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/OptimizedTagger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-142">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -315,14 +447,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OptimizedTagger.py">
+    <entry file="file://$PROJECT_DIR$/DataReader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+        <state>
+          <caret selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Embedding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1539570314737" expanded="true" signature="6978:7528" ph="..." />
-            <marker date="1539570314737" expanded="true" signature="7579:7588" ph="..." />
+            <marker date="1539681575997" expanded="true" signature="504:556" ph="..." />
           </folding>
         </state>
       </provider>

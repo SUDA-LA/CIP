@@ -189,7 +189,9 @@ class Tagger:
         else:
             wim1 = "^^"
 
-        if index < len(s) - 1:
+        s_len = len(s)
+
+        if index < s_len - 1:
             wip1 = s[index + 1]
         else:
             wip1 = "$$"
@@ -199,7 +201,8 @@ class Tagger:
                           self._get_feature_id((5, wi, wim1[-1]), new_id=new_id),
                           self._get_feature_id((6, wi, wip1[0]), new_id=new_id),
                           self._get_feature_id((7, wi[0]), new_id=new_id),
-                          self._get_feature_id((8, wi[-1]), new_id=new_id)]
+                          self._get_feature_id((8, wi[-1]), new_id=new_id),
+                          self._get_feature_id((16, round((index + 0.5) * 10.0 / s_len)), new_id=new_id)]
 
         w_len = len(wi)
 
@@ -218,6 +221,8 @@ class Tagger:
         for k in range(1, min(5, w_len + 1)):
             feature_vector += [self._get_feature_id((14, wi[:k]), new_id=new_id),
                                    self._get_feature_id((15, wi[-k:]), new_id=new_id)]
+
+
 
         return np.array([feature for feature in feature_vector if feature is not None])
 

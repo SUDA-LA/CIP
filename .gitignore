@@ -5,6 +5,7 @@ bigdata
 # ignore model files
 model
 *.pickle
+*.rar
 
 # ignore pycache
 __pycache__
