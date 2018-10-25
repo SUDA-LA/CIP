@@ -90,7 +90,8 @@ class Tagger:
                 s_len = len(sentence)
                 features = [self._extract_feature(sentence, k) for k in range(s_len)] + [self._end_feature(sentence)]
                 gt_pos = [int(t[p]) for p in pos[i]]
-                pred_pos_name, scores, alpha, beta = self.tag(sentence, with_extra=True)
+                scores, alpha, beta = self._get_scores(sentence)
+                _, pred_pos_name = self._viterbi_decode(scores)
                 z = np.average([alpha[s_len + 1][1], beta[0][0]])
                 shape = beta.shape
                 beta.shape = (shape[0], 1, shape[1])
@@ -139,7 +140,27 @@ class Tagger:
         with open(model_path, 'wb') as file:
             pickle.dump(self.model, file, protocol=pickle.HIGHEST_PROTOCOL)
 
-    def tag(self, s, with_extra=False):
+    def _viterbi_decode(self, scores):
+        s_len = len(scores) - 1
+        backwards = np.zeros((s_len + 1, self.model.tag_size))
+        score = np.full((1, self.model.tag_size), -np.inf)
+        score[0][0] = 0
+        for i in range(s_len + 1):
+            score_i = score + scores[i]
+            backwards[i] = np.argmax(score_i, axis=1)
+            score = np.max(score_i, axis=1)
+
+        best_score, last_tag = score[1], backwards[-1][1]
+        tag_point = int(last_tag)
+        tags = [tag_point]
+        for backward in reversed(backwards[:-1]):
+            tag_point = int(backward[tag_point])
+            tags.append(tag_point)
+        start = tags.pop()
+        assert start == 0
+        return float(best_score), [self.model.tags_backward[t_id] for t_id in reversed(tags)]
+
+    def _get_scores(self, s):
         assert self.model
         s_len = len(s)
         # 这里的alpha和beta准确地说是log(alpha)和log(beta)
@@ -167,11 +188,12 @@ class Tagger:
             alpha[k + 1] = logsumexp(scores[k] + alpha[k], axis=1)
             beta[s_len - k] = logsumexp(np.transpose(scores[s_len - k]) + beta[s_len - k + 1], axis=1)
             # 开始的时候beta中的scores没有转置 (×)
-        tags = [t_b[np.argmax(alpha[i + 1] + beta[i + 1])] for i in range(s_len)]
-        if with_extra:
-            return tags, scores, alpha, beta
-        else:
-            return tags
+        return scores, alpha, beta
+
+    def tag(self, s):
+        scores, _, _ = self._get_scores(s)
+        _, tags = self._viterbi_decode(scores)
+        return tags
 
     def _dot(self, now_tag, feature_vector):
         if feature_vector is None or len(feature_vector) == 0:

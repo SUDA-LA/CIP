@@ -1,15 +1,15 @@
-import torch
-from DataReader import DataReader
-from Char2seqModel import Model
+from Reader.DataReader import DataReader
+from Model.BiGruCrfModel import Model
 
 
 class Tagger:
-    def __init__(self, config, model_path=None):
-        self.config = config
+    def __init__(self, model_path=None):
         self.model = None
+        if model_path is not None:
+            self.load(model_path)
 
-    def train(self, dataset_path):
-        trainer = Model.ModelTrainer(dataset_path, self.config)
+    def train(self, dataset_path, config, test_path=None):
+        trainer = Model.ModelTrainer(dataset_path, test_path=test_path, config=config)
         self.model = trainer.model
         trainer.train()
 
@@ -17,15 +17,18 @@ class Tagger:
         return self.model.tag(sentence)
 
     def save(self, path):
-        pass
+        if self.model is not None:
+            self.model.save(path)
 
     def load(self, path):
-        pass
+        self.model = Model.load(path)
 
 
 if __name__ == '__main__':
-    tagger = Tagger(Model.Config(hidden_dim=20, embedding_dim=100))
-    tagger.train('./data/ctb5/train.conll')
+    tagger = Tagger()
+    tagger.train('./data/ctb5/train.conll',
+                 test_path='./data/ctb5/test.conll',
+                 config=Model.Config(hidden_dim=300, embedding_dim=100))
     tagger.save('./model/ctb5_model.model')
     dr = DataReader('./data/ctb5/test.conll')
     s = dr.get_seg_data()

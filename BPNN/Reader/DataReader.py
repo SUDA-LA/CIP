@@ -3,10 +3,10 @@ class DataReader:
         fi = open(path, "r", encoding=encoding)
         sentences = []
         sentence = []
-        self.tags_reverse = {}
-        self.tags = {}
-        self.words_reverse = {}
-        self.words = {}
+        self.tags_reverse = {0: 'START', 1: 'STOP'}
+        self.tags = {'START': 0, 'STOP': 1}
+        self.words_reverse = {0: '__#O0V?#'}
+        self.words = {'__#O0V?#': 0}
         while True:
             try:
                 line = next(fi)

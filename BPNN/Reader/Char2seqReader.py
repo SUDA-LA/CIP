@@ -6,10 +6,11 @@ class DataReader:
         tags = []
         self.SOS_token = 0
         self.EOS_token = 1
+        self.OOV_token = 0
         self.tags_reverse = {self.SOS_token: 'SOS', self.EOS_token: 'EOS'}
         self.tags = {'SOS': self.SOS_token, 'EOS': self.EOS_token}
-        self.chars_reverse = {}
-        self.chars = {}
+        self.chars_reverse = {self.OOV_token: 'OOV'}
+        self.chars = {'OOV': self.OOV_token}
         self.max_length = 0
         while True:
             try:
@@ -34,8 +35,8 @@ class DataReader:
                     self.tags_reverse[t_id] = tag
             else:
                 self.data.append([sentence, tags])
-                if len(tags) > self.max_length:
-                    self.max_length = len(tags)
+                if len(sentence) > self.max_length:
+                    self.max_length = len(sentence)
                 sentence = []
                 tags = []
 
@@ -45,7 +46,7 @@ class DataReader:
         return [self.chars_reverse[c_id] for c_id in s]
 
     def chars2cid(self, s):
-        return [self.chars[t] for t in s]
+        return [self.chars.get(t, self.OOV_token) for t in s]
 
     def tid2name(self, s):
         return [self.tags_reverse[t_id] for t_id in s]
