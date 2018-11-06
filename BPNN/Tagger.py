@@ -8,8 +8,8 @@ class Tagger:
         if model_path is not None:
             self.load(model_path)
 
-    def train(self, dataset_path, config, test_path=None):
-        trainer = Model.ModelTrainer(dataset_path, test_path=test_path, config=config)
+    def train(self, data_reader: DataReader, config):
+        trainer = Model.ModelTrainer(data_reader=data_reader, config=config)
         self.model = trainer.model
         trainer.train()
 
@@ -26,22 +26,16 @@ class Tagger:
 
 if __name__ == '__main__':
     tagger = Tagger()
-    tagger.train('./data/ctb5/train.conll',
-                 test_path='./data/ctb5/test.conll',
-                 config=Model.Config(hidden_dim=300, embedding_dim=100))
+    device = "cpu"
+    data_reader = DataReader(
+        train_path='./data/ctb5/train.conll',
+        test_path='./data/ctb5/test.conll',
+        dev_path='./data/ctb5/dev.conll',
+        embed_path='./data/embed.txt',
+        char_level=False,
+        device=device
+    )
+    tagger.train(data_reader=data_reader, config=Model.Config(300, learn_rate=0.001, device=device))
     tagger.save('./model/ctb5_model.model')
-    dr = DataReader('./data/ctb5/test.conll')
-    s = dr.get_seg_data()
-    gt = dr.get_pos_data()
-
-    acc = 0
-    word_count = 0
-
-    for i, val in enumerate(s):
-        tag = tagger.tag(val)
-        acc += len([index for index, v in enumerate(tag) if v == gt[i][index]])
-        word_count += len(tag)
-
-    print("Tagging Accuracy: %.5f" % acc / word_count)
 
 

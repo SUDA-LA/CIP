@@ -1,5 +1,6 @@
 import pickle
 from DataReader import DataReader
+from datetime import datetime
 
 
 class Tagger:
@@ -191,6 +192,9 @@ if __name__ == '__main__':
     tagger = Tagger()
     if not os.path.exists('.\\model'):
         os.mkdir('.\\model')
+    start = datetime.now()
     tagger.train('.\\data\\train.conll')
+    spent = datetime.now() - start
+    print(spent)
     tagger.save_model('.\\model\\model.pickle')
     tagger.load_model('.\\model\\model.pickle')
