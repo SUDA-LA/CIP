@@ -2,8 +2,8 @@ from OptimizedTagger import Tagger
 from DataReader import DataReader
 
 # tagger = Tagger()
-tagger = Tagger('.\\model\\bigdata_model.pickle')
-dr = DataReader('.\\bigdata\\dev.conll')
+tagger = Tagger('.\\model\\model.pickle')
+dr = DataReader('.\\data\\dev.conll')
 
 s = dr.get_seg_data()
 gt = dr.get_pos_data()

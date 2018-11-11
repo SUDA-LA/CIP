@@ -2,17 +2,21 @@ from OptimizedTagger import Tagger
 from DataReader import DataReader
 
 # tagger = Tagger()
-tagger = Tagger('.\\model\\bigdata_model.pickle')
-dr = DataReader('.\\bigdata\\dev.conll')
+dr = DataReader('.\\data\\dev.conll')
 
 s = dr.get_seg_data()
 gt = dr.get_pos_data()
-acc = 0
-word_count = 0
 
-for i, val in enumerate(s):
-    tag = tagger.tag(val)
-    acc += len([index for index, v in enumerate(tag) if v == gt[i][index]])
-    word_count += len(tag)
+index = range(5, 55, 5)
+averaged_perceptron = True
+for e in index:
+    word_count = 0
+    tagger = Tagger('.\\model\\check_point_' + str(e) + '.pickle')
+    _, _, acc = tagger.evaluate(eval_reader=dr)
 
-print("Tagging Accuracy: %.5f" % (acc / word_count))
+    print("Tagging in epoch %d Accuracy: %.5f" % (e, acc))
+
+
+tagger = Tagger('.\\model\\check_point_finish.pickle')
+_, _, acc = tagger.evaluate(eval_reader=dr)
+print("Tagging in epoch finish Accuracy: %.5f" % acc)

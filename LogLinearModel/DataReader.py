@@ -1,5 +1,9 @@
+import random
+
+
 class DataReader:
-    def __init__(self, path, encoding='UTF-8'):
+    def __init__(self, path, encoding='UTF-8', random_seed=None):
+        random.seed(random_seed)
         fi = open(path, "r", encoding=encoding)
         sentences = []
         sentence = []
@@ -18,6 +22,9 @@ class DataReader:
 
         self.data = sentences
         fi.close()
+
+    def shuffle(self):
+        random.shuffle(self.data)
 
     def get_seg_data(self):
         return [[word['word'] for word in sentence] for sentence in self.data]

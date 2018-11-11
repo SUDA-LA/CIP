@@ -6,11 +6,8 @@ bigdata
 model
 *.pickle
 *.rar
-*.plk
-
 
 # ignore pycache
 __pycache__
 *.pkl
 *.iml
-.idea
