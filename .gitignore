@@ -1,6 +1,7 @@
 # ignore data files
 data
 bigdata
+*\.idea
 
 # ignore model files
 model
