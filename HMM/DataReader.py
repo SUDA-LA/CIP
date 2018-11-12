@@ -3,7 +3,8 @@ import random
 
 class DataReader:
     def __init__(self, path, encoding='UTF-8', random_seed=None):
-        random.seed(random_seed)
+        if random_seed is not None:
+            random.seed(random_seed)
         fi = open(path, "r", encoding=encoding)
         sentences = []
         sentence = []

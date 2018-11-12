@@ -1,5 +1,5 @@
 import pickle
-from .DataReader import DataReader
+from DataReader import DataReader
 import numpy as np
 from scipy.special import logsumexp
 from datetime import datetime
@@ -346,9 +346,9 @@ if __name__ == '__main__':
     if not os.path.exists('.\\model'):
         os.mkdir('.\\model')
     # tagger.train('.\\bigdata\\train.conll', tagger.Config(0, 20, '.\\model\\', 1))
-    tagger.train('.\\bigdata\\train.conll',
-                 dev_path='.\\bigdata\\dev.conll',
-                 test_path='.\\bigdata\\test.conll',
+    tagger.train('.\\data\\train.conll',
+                 dev_path='.\\data\\dev.conll',
+                 # test_path='.\\bigdata\\test.conll',
                  config=Tagger.Config(learning_rate=0.1,  # data 0.4 is fine big data use < 0.1
                                       c=0,
                                       rho=1,

@@ -1,9 +1,8 @@
-import pickle
 from datetime import datetime
 from datetime import timedelta
-from .DataReader import DataReader
+from DataReader import DataReader
 import numpy as np
-from .TaggerBase import TaggerBase
+from TaggerBase import TaggerBase
 
 
 class Tagger(TaggerBase):
@@ -242,8 +241,9 @@ if __name__ == '__main__':
                  dev_path='.\\data\\dev.conll',
                  # test_path='.\\bigdata\\test.conll',
                  config=tagger.Config(0, 100, '.\\model\\', 5,
-                                      averaged_perceptron=True,
-                                      random_lr=lambda: 0.8 + 0.4 * np.random.random()))
+                                      averaged_perceptron=False,
+                                      random_lr=None,
+                                      evaluate_mode=True))
                                       # random_lr=lambda: np.random.normal(1, 0.2)))
     tagger.save_model('.\\model\\data_model.pickle')
     tagger.load_model('.\\model\\data_model.pickle')

@@ -1,7 +1,7 @@
 import pickle
 from datetime import datetime
 from datetime import timedelta
-from .DataReader import DataReader
+from DataReader import DataReader
 import numpy as np
 from scipy.special import logsumexp
 

@@ -1,5 +1,5 @@
 import pickle
-from .DataReader import DataReader
+from DataReader import DataReader
 import numpy as np
 from datetime import datetime
 
