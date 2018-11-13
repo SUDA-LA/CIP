@@ -12,3 +12,4 @@ model
 __pycache__
 *.pkl
 *.iml
+*.pickle
