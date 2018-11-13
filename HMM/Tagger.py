@@ -99,16 +99,24 @@ class Tagger:
                 (gt_pos[k - 1] if k > 0 else START_TAG, gt_pos[k]) for k in range(s_len)
             ]
             for k in range(s_len):
-                weight[gt_pos[k]][features[k]] += 1
-                tag_weight[tag_feature[k]] += 1
+                weight[gt_pos[k], features[k]] += 1
+                tag_feature_k = tag_feature[k]
+                tag_weight[tag_feature_k] += 1
+            tag_weight[gt_pos[-1], 1] += 1
 
-        tag_count = np.sum(tag_weight, axis=1)  # tag_w: (now, next) -> tag_c : (now)
-        features_count = np.sum(weight, axis=0)  # tag_w: (tag, feature) -> tag_c : (feature)
-        # tag_count[START_TAG] = data_count
-        self.model.weight = (weight + smooth) / (features_count.reshape(1, -1) + smooth * self.model.tag_size)
-        # (tag, feature) / (1, feature)
-        self.model.tag_weight = (tag_weight + smooth) / (tag_count.reshape(-1, 1) + smooth * self.model.tag_size)
-        # (now, next) / (now, 1)
+        tag_count = np.sum(tag_weight, axis=1)  # tag_w: (pre, now) -> tag_c : (pre)
+        tag_count[1] = tag_count[0]
+        # features_count = np.sum(weight, axis=0)  # tag_w: (tag, feature) -> tag_c : (feature)
+        features_count = np.sum(weight, axis=1)  # tag_w: (tag, feature) -> tag_c : (tag)
+        # self.model.weight = (weight + smooth) / (features_count.reshape((1, -1)) + smooth * self.model.feature_size)
+        # # (tag, feature) / (1, feature)
+        self.model.weight = (weight + smooth) / (features_count.reshape((-1, 1)) + smooth * self.model.feature_size)
+        # (tag, feature) / (tag, 1)
+        self.model.tag_weight = (tag_weight + smooth) / (tag_count.reshape((-1, 1)) + smooth * self.model.tag_size)
+        # (pre, now) / (pre, 1)
+
+        self.model.weight = np.log(self.model.weight)
+        self.model.tag_weight = np.log(self.model.tag_weight)
 
         _, _, train_acc = self.evaluate(eval_reader=dr)
         print(f"train accuracy: {train_acc :.5%}")
@@ -131,23 +139,22 @@ class Tagger:
     def tag(self, s):
         assert self.model
         s_len = len(s)
-        pi = np.zeros((s_len + 1, self.model.tag_size))
-        bt = np.zeros((s_len, self.model.tag_size))
-        pi[0][0] = 1
+        pi = np.full((s_len + 1, self.model.tag_size), -np.inf)
+        bt = np.zeros((s_len, self.model.tag_size), dtype='int')
+        pi[0][0] = 0
         tw = self.model.tag_weight.transpose()
         for i in range(s_len):
             f = self._extract_feature(s, i)
-            scores = self._dot(f).reshape((-1, 1)) * tw * pi[i]
-            # (now_tag, 1) + (now_tag, pre_tag) + (1, pre_tag)
+            scores = self._dot(f).reshape((-1, 1)) + tw + pi[i]
             bt[i] = np.argmax(scores, axis=1)
             pi[i + 1] = np.max(scores, axis=1)
         tags = [''] * s_len
-        pre_tag = np.argmax(pi[-1])
+        pre_tag = np.argmax(tw[1] + pi[-1])
         for i in range(s_len):
             index = s_len - i - 1
             now_tag = int(pre_tag)
             tags[index] = self.model.tags_backward[now_tag]
-            pre_tag = bt[index][now_tag]
+            pre_tag = bt[index, now_tag]
         return tags
 
     def _dot(self, feature_vector):
@@ -174,6 +181,8 @@ class Tagger:
         t_b = self.model.tags_backward
         t["START"] = 0
         t_b[0] = "START"
+        t["STOP"] = 1
+        t_b[1] = "STOP"
         self.model.START_TAG = 0
         for i in range(data_len):
             sentence = segs[i]

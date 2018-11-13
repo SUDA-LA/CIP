@@ -34,44 +34,44 @@ def evaluate(tagger, result_path, config=None, bigdata=False):
         print(f"{result_path} {'bigdata' if bigdata else 'data'} train finish at {end} spend {end - start}s")
 
 
-# HMM
-_tagger = HMM.Tagger.Tagger()
-_result_path = _tagger.model_name
-_config = _tagger.Config(0.3, evaluate_mode=True)
-evaluate(_tagger, _result_path, _config, bigdata=False)
-_config = _tagger.Config(0.01, evaluate_mode=True)
-evaluate(_tagger, _result_path, _config, bigdata=True)
-
-
+# # HMM
+# _tagger = HMM.Tagger.Tagger()
+# _result_path = _tagger.model_name
+# _config = _tagger.Config(0.3, evaluate_mode=True)
+# evaluate(_tagger, _result_path, _config, bigdata=False)
+# _config = _tagger.Config(0.01, evaluate_mode=True)
+# evaluate(_tagger, _result_path, _config, bigdata=True)
+#
+#
 # LinearModel
 _tagger = LinearModel.Tagger.Tagger()
 _optimizedTagger = LinearModel.OptimizedTagger.Tagger()
-
-# Linear Model vanilla
-_result_path = _tagger.model_name
-_optimized_result_path = _optimizedTagger.model_name
-_config = _tagger.Config(stop_threshold=0,
-                         max_iter=50,
-                         averaged_perceptron=False,
-                         evaluate_mode=True
-                         )
-evaluate(_tagger, _result_path, _config, bigdata=False)
-evaluate(_tagger, _result_path, _config, bigdata=True)
-evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=False)
-evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=True)
-
-# Linear Model averaged perceptron
-_result_path = _tagger.model_name + '_averaged_perceptron'
-_optimized_result_path = _optimizedTagger.model_name + '_averaged_perceptron'
-_config = _tagger.Config(stop_threshold=0,
-                         max_iter=50,
-                         averaged_perceptron=True,
-                         evaluate_mode=True
-                         )
-evaluate(_tagger, _result_path, _config, bigdata=False)
-evaluate(_tagger, _result_path, _config, bigdata=True)
-evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=False)
-evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=True)
+#
+# # Linear Model vanilla
+# _result_path = _tagger.model_name
+# _optimized_result_path = _optimizedTagger.model_name
+# _config = _tagger.Config(stop_threshold=0,
+#                          max_iter=50,
+#                          averaged_perceptron=False,
+#                          evaluate_mode=True
+#                          )
+# evaluate(_tagger, _result_path, _config, bigdata=False)
+# evaluate(_tagger, _result_path, _config, bigdata=True)
+# evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=False)
+# evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=True)
+#
+# # Linear Model averaged perceptron
+# _result_path = _tagger.model_name + '_averaged_perceptron'
+# _optimized_result_path = _optimizedTagger.model_name + '_averaged_perceptron'
+# _config = _tagger.Config(stop_threshold=0,
+#                          max_iter=50,
+#                          averaged_perceptron=True,
+#                          evaluate_mode=True
+#                          )
+# evaluate(_tagger, _result_path, _config, bigdata=False)
+# evaluate(_tagger, _result_path, _config, bigdata=True)
+# evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=False)
+# evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=True)
 
 # Linear Model random
 _result_path = _tagger.model_name + '_random'
@@ -82,7 +82,7 @@ _config = _tagger.Config(stop_threshold=0,
                          random_lr=lambda: 0.8 + 0.4 * np.random.random(),
                          evaluate_mode=True
                          )
-evaluate(_tagger, _result_path, _config, bigdata=False)
+# evaluate(_tagger, _result_path, _config, bigdata=False)
 evaluate(_tagger, _result_path, _config, bigdata=True)
 evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=False)
 evaluate(_optimizedTagger, _optimized_result_path, _config, bigdata=True)
@@ -112,7 +112,7 @@ _config = _tagger.Config(learning_rate=0.5,  # data 0.5 is fine
                          c=0,
                          rho=1,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=False)
@@ -121,7 +121,7 @@ _config = _tagger.Config(learning_rate=0.1,  # data 0.5 is fine
                          c=0,
                          rho=1,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=True)
@@ -134,7 +134,7 @@ _config = _tagger.Config(learning_rate=0.5,  # data 0.5 is fine
                          c=0.0001,
                          rho=0.96,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=False)
@@ -143,7 +143,7 @@ _config = _tagger.Config(learning_rate=0.1,  # data 0.5 is fine
                          c=0.0001,
                          rho=0.96,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=True)
@@ -218,7 +218,7 @@ _config = _tagger.Config(learning_rate=0.5,  # data 0.5 is fine
                          c=0,
                          rho=1,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=False)
@@ -227,7 +227,7 @@ _config = _tagger.Config(learning_rate=0.1,  # data 0.5 is fine
                          c=0,
                          rho=1,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=True)
@@ -240,7 +240,7 @@ _config = _tagger.Config(learning_rate=0.5,  # data 0.5 is fine
                          c=0.0001,
                          rho=0.96,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=False)
@@ -249,7 +249,7 @@ _config = _tagger.Config(learning_rate=0.1,  # data 0.5 is fine
                          c=0.0001,
                          rho=0.96,
                          delay_step=100000,
-                         max_iter=80,
+                         max_iter=50,
                          batch_size=50,
                          evaluate_mode=True)
 evaluate(_tagger, _result_path, _config, bigdata=True)
