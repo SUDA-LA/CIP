@@ -33,9 +33,9 @@ class Tagger(TaggerBase):
 
         if evaluate_mode:
             dr = DataReader(data_path, random_seed=1)
-            print(f"Set the seed for built-in generating random numbers to 1")
+            print("Set the seed for built-in generating random numbers to 1")
             np.random.seed(1)
-            print(f"Set the seed for numpy generating random numbers to 1")
+            print("Set the seed for numpy generating random numbers to 1")
         else:
             dr = DataReader(data_path)
         if test_path is None:

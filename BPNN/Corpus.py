@@ -1,4 +1,67 @@
 import numpy as np
+import random
+
+__all__ = ['Dataset', 'DataReader', 'DataLoader']
+
+
+class Dataset:
+    def __init__(self, *data, seed=None):
+        if seed is not None:
+            random.seed(seed)
+        self.data = list(zip(*data))
+        self.data_size = len(self.data)
+        self.data_pointer = 0
+
+    def shuffle(self):
+        random.shuffle(self.data)
+        self.data_pointer = 0
+
+    def __len__(self):
+        return self.data_size
+
+    def next(self, batch_size=1, simple_mode=False):
+        upper = self.data_pointer + batch_size
+        if upper <= self.data_size:
+            batch_data = self.data[self.data_pointer:upper]
+            self.data_pointer = upper % self.data_size
+            return batch_data
+        else:
+            if simple_mode:
+                self.data_pointer = batch_size
+                return self.data[:batch_size]
+            else:
+                batch_data = self.data[self.data_pointer:]
+                copy_size = (batch_size - len(batch_data)) // self.data_size
+                batch_data += self.data * copy_size
+                batch_data += self.data[:batch_size - len(batch_data)]
+                self.data_pointer = (self.data_pointer + batch_size) % self.data_size
+                return batch_data
+
+
+class DataLoader:
+    def __init__(self, dataset:Dataset, batch_size=1, shuffle=False):
+        self.dataset = dataset
+        self.batch_size = batch_size
+        self.shuffle = shuffle
+        self.data_size = len(dataset)
+        self.data_pointer = 0
+        self.max_iter = self.data_size // self.batch_size
+
+    def __len__(self):
+        return self.max_iter
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.data_pointer > self.max_iter:
+            self.data_pointer = 0
+            raise StopIteration()
+        if self.data_pointer == 0 and self.shuffle:
+            self.dataset.shuffle()
+        self.data_pointer += 1
+        zipped = self.dataset.next(self.batch_size, True)
+        return tuple(zip(*zipped))
 
 
 class DataReader:
@@ -7,8 +70,7 @@ class DataReader:
     EOS = '<EOS>'
     PAD = '<PAD>'
 
-    def __init__(self, train_path, test_path, dev_path, embed_path, encoding='UTF-8', device="cpu", char_level=False):
-        self.device = device
+    def __init__(self, train_path, test_path, dev_path, embed_path, encoding='UTF-8'):
         train_data = self.parse(train_path, encoding=encoding)
         test_data = self.parse(test_path, encoding=encoding)
         dev_data = self.parse(dev_path, encoding=encoding)
@@ -39,11 +101,11 @@ class DataReader:
         self.char_size = len(self.char_set)
 
         self.embed = self._load_embed(embed_path, encoding=encoding)
-        self.embed_size = self.embed.size(1)
+        self.embed_size = self.embed.shape[1]
 
-        self.train_dataset = self.to_dataset(train_data, char_level)
-        self.test_dataset = self.to_dataset(test_data, char_level)
-        self.dev_dataset = self.to_dataset(dev_data, char_level)
+        self.train_dataset = self.to_dataset(train_data)
+        self.test_dataset = self.to_dataset(test_data)
+        self.dev_dataset = self.to_dataset(dev_data)
 
     def _load_embed(self, embed_path, encoding='UTF-8'):
         with open(embed_path, "r", encoding=encoding) as fe:
@@ -58,7 +120,8 @@ class DataReader:
 
         part_embed_tensor = np.array(embed_val)
         embed_indices = [self.word_dict[embed_word] for embed_word in embed_words]
-        embed_tensor = np.zeros((self.word_size, part_embed_tensor.size(1)))
+        embdim = part_embed_tensor.shape[1]
+        embed_tensor = np.random.randn(self.word_size, embdim) / np.sqrt(embdim)
         self._init_embed(embed_tensor)
         embed_tensor[embed_indices] = part_embed_tensor
         return embed_tensor
@@ -121,25 +184,19 @@ class DataReader:
         return word_set, char_set, tag_set
 
     def to_dataset(self, data, n_gram=2):
-        x, y, chars, lens = [], [], [], []
+        x, y = [], []
+        D = 2 * n_gram + 1
         for sentence, label in zip(*data):
-            words_id = [self.word_dict.get(word, self.unk_wi) for word in sentence]
-            n_words_id = [
-                [self.sos_wi] * -offset +
-                (words_id[:offset] if offset < 0 else words_id[offset:]) +
-                [self.eos_wi] * offset
-                for offset in range(-n_gram, n_gram + 1)
-            ]
+            words_id = np.array([self.word_dict.get(word, self.unk_wi) for word in sentence])
+            s_len = len(words_id)
+            words_id = np.pad(words_id, (n_gram, n_gram), 'constant', constant_values=(self.sos_wi, self.eos_wi))
+            n_words_id = [words_id[offset: offset + D] for offset in range(s_len)]
             tags_id = [self.tag_dict[tag] for tag in label]
-            x.append(np.array(n_words_id).transpose())
-            y.append(np.array(tags_id))
-            lens.append(len(tags_id))
-
-        # TODO fix return
-
-    @staticmethod
-    def padding_data(x, y):
-
+            x += n_words_id
+            y += tags_id
+        x = np.array(x, dtype='int')
+        y = np.array(y, dtype='int')
+        return Dataset(x, y)
 
     def wid2word(self, s):
         return [self.word_reverse_dict.get(wid, self.UNK) for wid in s]

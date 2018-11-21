@@ -50,7 +50,7 @@ class Tagger:
         with open(model_path, 'rb') as file:
             self.model = pickle.load(file)
 
-    def evaluate(self, eval_path=None, eval_reader=None, averaged_perceptron=False):
+    def evaluate(self, eval_path=None, eval_reader=None):
         assert eval_path is not None or eval_reader is not None
         if eval_reader is None:
             eval_reader = DataReader(eval_path)
