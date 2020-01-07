@@ -1,0 +1,130 @@
+nohup: ignoring input
+./data/train.conll:共803个句子,共20454个词。
+./data/dev.conll:共1910个句子,共50319个词。
+the total number of features is 67391
+{'AD': 0, 'AS': 1, 'BA': 2, 'CC': 3, 'CD': 4, 'CS': 5, 'DEC': 6, 'DEG': 7, 'DER': 8, 'DEV': 9, 'DT': 10, 'ETC': 11, 'FW': 12, 'JJ': 13, 'LB': 14, 'LC': 15, 'M': 16, 'MSP': 17, 'NN': 18, 'NR': 19, 'NT': 20, 'OD': 21, 'P': 22, 'PN': 23, 'PU': 24, 'SB': 25, 'SP': 26, 'VA': 27, 'VC': 28, 'VE': 29, 'VV': 30}
+train_data_file:./data/train.conll
+dev_data_file:./data/dev.conll
+test_data_file:None
+iterator:100
+batchsize:1
+shuffle:True
+regulization:True
+step_opt:True
+exitor:10
+eta:0.5
+C:1e-05
+eta=0.500000
+add regulization...C=0.000010
+add step optimization
+iterator: 0
+	shuffle the train data...
+	train准确率：19814 / 20454 = 0.968710
+	dev准确率：43272 / 50319 = 0.859953
+	save the model...
+	iteration executing time is 0:00:17.186050 s
+iterator: 1
+	shuffle the train data...
+	train准确率：20164 / 20454 = 0.985822
+	dev准确率：43803 / 50319 = 0.870506
+	save the model...
+	iteration executing time is 0:00:17.114121 s
+iterator: 2
+	shuffle the train data...
+	train准确率：20404 / 20454 = 0.997555
+	dev准确率：44441 / 50319 = 0.883185
+	save the model...
+	iteration executing time is 0:00:17.343608 s
+iterator: 3
+	shuffle the train data...
+	train准确率：20430 / 20454 = 0.998827
+	dev准确率：44589 / 50319 = 0.886127
+	save the model...
+	iteration executing time is 0:00:17.142178 s
+iterator: 4
+	shuffle the train data...
+	train准确率：20451 / 20454 = 0.999853
+	dev准确率：44676 / 50319 = 0.887855
+	save the model...
+	iteration executing time is 0:00:17.346308 s
+iterator: 5
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44678 / 50319 = 0.887895
+	save the model...
+	iteration executing time is 0:00:17.119573 s
+iterator: 6
+	shuffle the train data...
+	train准确率：20451 / 20454 = 0.999853
+	dev准确率：44719 / 50319 = 0.888710
+	save the model...
+	iteration executing time is 0:00:17.374729 s
+iterator: 7
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44738 / 50319 = 0.889088
+	save the model...
+	iteration executing time is 0:00:17.105562 s
+iterator: 8
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44727 / 50319 = 0.888869
+	iteration executing time is 0:00:17.095542 s
+iterator: 9
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44762 / 50319 = 0.889565
+	save the model...
+	iteration executing time is 0:00:17.290854 s
+iterator: 10
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44724 / 50319 = 0.888809
+	iteration executing time is 0:00:17.272997 s
+iterator: 11
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44715 / 50319 = 0.888631
+	iteration executing time is 0:00:17.277810 s
+iterator: 12
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44719 / 50319 = 0.888710
+	iteration executing time is 0:00:17.048250 s
+iterator: 13
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44731 / 50319 = 0.888949
+	iteration executing time is 0:00:17.317802 s
+iterator: 14
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44741 / 50319 = 0.889147
+	iteration executing time is 0:00:17.293528 s
+iterator: 15
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44739 / 50319 = 0.889107
+	iteration executing time is 0:00:17.064083 s
+iterator: 16
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44736 / 50319 = 0.889048
+	iteration executing time is 0:00:17.069131 s
+iterator: 17
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44730 / 50319 = 0.888929
+	iteration executing time is 0:00:17.114314 s
+iterator: 18
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44721 / 50319 = 0.888750
+	iteration executing time is 0:00:17.049933 s
+iterator: 19
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44733 / 50319 = 0.888988
+	iteration executing time is 0:00:16.986440 s
+iterator = 9 , max_dev_precision = 0.889565
+executing time is 344 s
