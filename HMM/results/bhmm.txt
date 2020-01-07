@@ -1,0 +1,17 @@
+Preprocess the data
+Corpus(
+  num of sentences: 46572
+  num of words: 55954
+  num of tags: 35
+)
+Load the dataset
+  size of trainset: 46572
+  size of devset: 2079
+  size of testset: 2796
+Create HMM
+Use 46572 sentences to train the HMM
+Use Viterbi algorithm to tag the dataset
+Accuracy of dev: 52973 / 59955 = 0.883546
+
+Accuracy of test: 72196 / 81578 = 0.884994
+0:00:02.846564s elapsed
