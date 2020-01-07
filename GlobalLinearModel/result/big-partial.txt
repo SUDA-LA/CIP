@@ -1,0 +1,170 @@
+nohup: ignoring input
+./big-data/train.conll:共46572个句子,共1057943个词。
+./big-data/dev.conll:共2079个句子,共59955个词。
+./big-data/test.conll:共2796个句子,共81578个词。
+the total number of features is 1400228
+{'AD': 0, 'AS': 1, 'BA': 2, 'CC': 3, 'CD': 4, 'CS': 5, 'DEC': 6, 'DEG': 7, 'DER': 8, 'DEV': 9, 'DT': 10, 'ETC': 11, 'FW': 12, 'IJ': 13, 'JJ': 14, 'LB': 15, 'LC': 16, 'M': 17, 'MSP': 18, 'NN': 19, 'NR': 20, 'NT': 21, 'OD': 22, 'ON': 23, 'P': 24, 'PN': 25, 'PU': 26, 'SB': 27, 'SP': 28, 'URL': 29, 'VA': 30, 'VC': 31, 'VE': 32, 'VV': 33, 'X': 34}
+iterator: 0
+	shuffle the train data...
+	train准确率：995446 / 1057943 = 0.940926
+	dev准确率：54759 / 59955 = 0.913335
+	test准确率：74561 / 81578 = 0.913984
+	iteration executing time is 0:08:23.601203 s
+iterator: 1
+	shuffle the train data...
+	train准确率：995919 / 1057943 = 0.941373
+	dev准确率：54501 / 59955 = 0.909032
+	test准确率：73837 / 81578 = 0.905109
+	iteration executing time is 0:08:31.711401 s
+iterator: 2
+	shuffle the train data...
+	train准确率：1019688 / 1057943 = 0.963840
+	dev准确率：55391 / 59955 = 0.923876
+	test准确率：75102 / 81578 = 0.920616
+	iteration executing time is 0:08:29.414439 s
+iterator: 3
+	shuffle the train data...
+	train准确率：1026723 / 1057943 = 0.970490
+	dev准确率：55757 / 59955 = 0.929981
+	test准确率：75669 / 81578 = 0.927566
+	iteration executing time is 0:08:14.200460 s
+iterator: 4
+	shuffle the train data...
+	train准确率：1026249 / 1057943 = 0.970042
+	dev准确率：55469 / 59955 = 0.925177
+	test准确率：75041 / 81578 = 0.919868
+	iteration executing time is 0:08:12.888763 s
+iterator: 5
+	shuffle the train data...
+	train准确率：1034982 / 1057943 = 0.978297
+	dev准确率：55823 / 59955 = 0.931082
+	test准确率：75832 / 81578 = 0.929564
+	iteration executing time is 0:07:58.232617 s
+iterator: 6
+	shuffle the train data...
+	train准确率：1030193 / 1057943 = 0.973770
+	dev准确率：55639 / 59955 = 0.928013
+	test准确率：75256 / 81578 = 0.922504
+	iteration executing time is 0:07:54.283194 s
+iterator: 7
+	shuffle the train data...
+	train准确率：1036655 / 1057943 = 0.979878
+	dev准确率：55732 / 59955 = 0.929564
+	test准确率：75717 / 81578 = 0.928155
+	iteration executing time is 0:07:52.184017 s
+iterator: 8
+	shuffle the train data...
+	train准确率：1039841 / 1057943 = 0.982889
+	dev准确率：55942 / 59955 = 0.933066
+	test准确率：75879 / 81578 = 0.930140
+	iteration executing time is 0:07:49.439661 s
+iterator: 9
+	shuffle the train data...
+	train准确率：1039860 / 1057943 = 0.982907
+	dev准确率：55901 / 59955 = 0.932383
+	test准确率：75887 / 81578 = 0.930239
+	iteration executing time is 0:07:47.250878 s
+iterator: 10
+	shuffle the train data...
+	train准确率：1039837 / 1057943 = 0.982886
+	dev准确率：55687 / 59955 = 0.928813
+	test准确率：75600 / 81578 = 0.926720
+	iteration executing time is 0:07:46.123058 s
+iterator: 11
+	shuffle the train data...
+	train准确率：1042506 / 1057943 = 0.985408
+	dev准确率：55903 / 59955 = 0.932416
+	test准确率：75765 / 81578 = 0.928743
+	iteration executing time is 0:07:44.453315 s
+iterator: 12
+	shuffle the train data...
+	train准确率：1043411 / 1057943 = 0.986264
+	dev准确率：55948 / 59955 = 0.933167
+	test准确率：75925 / 81578 = 0.930704
+	iteration executing time is 0:07:44.132368 s
+iterator: 13
+	shuffle the train data...
+	train准确率：1037573 / 1057943 = 0.980746
+	dev准确率：55688 / 59955 = 0.928830
+	test准确率：75488 / 81578 = 0.925348
+	iteration executing time is 0:07:42.790528 s
+iterator: 14
+	shuffle the train data...
+	train准确率：1045324 / 1057943 = 0.988072
+	dev准确率：55988 / 59955 = 0.933834
+	test准确率：76047 / 81578 = 0.932200
+	iteration executing time is 0:07:41.172940 s
+iterator: 15
+	shuffle the train data...
+	train准确率：1046196 / 1057943 = 0.988896
+	dev准确率：56058 / 59955 = 0.935001
+	test准确率：75960 / 81578 = 0.931133
+	iteration executing time is 0:07:40.754360 s
+iterator: 16
+	shuffle the train data...
+	train准确率：1047262 / 1057943 = 0.989904
+	dev准确率：56132 / 59955 = 0.936236
+	test准确率：76097 / 81578 = 0.932813
+	iteration executing time is 0:07:40.208728 s
+iterator: 17
+	shuffle the train data...
+	train准确率：1044993 / 1057943 = 0.987759
+	dev准确率：55916 / 59955 = 0.932633
+	test准确率：75796 / 81578 = 0.929123
+	iteration executing time is 0:07:40.739684 s
+iterator: 18
+	shuffle the train data...
+	train准确率：1046914 / 1057943 = 0.989575
+	dev准确率：56044 / 59955 = 0.934768
+	test准确率：75933 / 81578 = 0.930802
+	iteration executing time is 0:07:39.658847 s
+iterator: 19
+	shuffle the train data...
+	train准确率：1043779 / 1057943 = 0.986612
+	dev准确率：55924 / 59955 = 0.932766
+	test准确率：76038 / 81578 = 0.932090
+	iteration executing time is 0:07:40.596137 s
+iterator: 20
+	shuffle the train data...
+	train准确率：1021667 / 1057943 = 0.965711
+	dev准确率：55053 / 59955 = 0.918239
+	test准确率：74535 / 81578 = 0.913665
+	iteration executing time is 0:07:38.789018 s
+iterator: 21
+	shuffle the train data...
+	train准确率：1044419 / 1057943 = 0.987217
+	dev准确率：55833 / 59955 = 0.931248
+	test准确率：75797 / 81578 = 0.929135
+	iteration executing time is 0:07:47.671209 s
+iterator: 22
+	shuffle the train data...
+	train准确率：1042413 / 1057943 = 0.985321
+	dev准确率：55637 / 59955 = 0.927979
+	test准确率：75564 / 81578 = 0.926279
+	iteration executing time is 0:07:43.566360 s
+iterator: 23
+	shuffle the train data...
+	train准确率：1044292 / 1057943 = 0.987097
+	dev准确率：55833 / 59955 = 0.931248
+	test准确率：75900 / 81578 = 0.930398
+	iteration executing time is 0:07:42.281766 s
+iterator: 24
+	shuffle the train data...
+	train准确率：1046612 / 1057943 = 0.989290
+	dev准确率：56038 / 59955 = 0.934668
+	test准确率：76111 / 81578 = 0.932984
+	iteration executing time is 0:07:47.735105 s
+iterator: 25
+	shuffle the train data...
+	train准确率：1047483 / 1057943 = 0.990113
+	dev准确率：56084 / 59955 = 0.935435
+	test准确率：76093 / 81578 = 0.932764
+	iteration executing time is 0:07:43.427608 s
+iterator: 26
+	shuffle the train data...
+	train准确率：1049605 / 1057943 = 0.992119
+	dev准确率：56122 / 59955 = 0.936069
+	test准确率：76127 / 81578 = 0.933181
+	iteration executing time is 0:07:47.786118 s
+iterator = 16 , max_dev_precision = 0.936236
+executing time is 12763 s
