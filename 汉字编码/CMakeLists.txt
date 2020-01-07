@@ -1,0 +1,2 @@
+add_executable(char_counter_GBK char_counter_GBK.c)
+add_executable(char_counter_UTF8 char_counter_UTF8.c)
