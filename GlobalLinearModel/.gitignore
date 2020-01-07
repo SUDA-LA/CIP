@@ -1,0 +1,12 @@
+# ignore data files
+data
+bigdata
+
+# ignore pycache
+__pycache__
+
+# ignore pickle files
+*.pkl
+
+# ignore vscode
+.vscode
