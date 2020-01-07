@@ -1,0 +1,92 @@
+nohup: ignoring input
+./data/train.conll:共803个句子,共20454个词。
+./data/dev.conll:共1910个句子,共50319个词。
+the total number of features is 67359
+eta=0.500000
+iterator: 0
+shuffle the train data...
+	train准确率：19745 / 20454 = 0.965337
+	dev准确率：42836 / 50319 = 0.851289
+	iteration executing time is 4 s
+iterator: 1
+shuffle the train data...
+	train准确率：20227 / 20454 = 0.988902
+	dev准确率：43491 / 50319 = 0.864306
+	iteration executing time is 3 s
+iterator: 2
+shuffle the train data...
+	train准确率：20395 / 20454 = 0.997115
+	dev准确率：43895 / 50319 = 0.872335
+	iteration executing time is 4 s
+iterator: 3
+shuffle the train data...
+	train准确率：20422 / 20454 = 0.998436
+	dev准确率：43887 / 50319 = 0.872176
+	iteration executing time is 3 s
+iterator: 4
+shuffle the train data...
+	train准确率：20441 / 20454 = 0.999364
+	dev准确率：43968 / 50319 = 0.873785
+	iteration executing time is 4 s
+iterator: 5
+shuffle the train data...
+	train准确率：20452 / 20454 = 0.999902
+	dev准确率：43976 / 50319 = 0.873944
+	iteration executing time is 3 s
+iterator: 6
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：44018 / 50319 = 0.874779
+	iteration executing time is 4 s
+iterator: 7
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43976 / 50319 = 0.873944
+	iteration executing time is 4 s
+iterator: 8
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43996 / 50319 = 0.874342
+	iteration executing time is 4 s
+iterator: 9
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43988 / 50319 = 0.874183
+	iteration executing time is 3 s
+iterator: 10
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43992 / 50319 = 0.874262
+	iteration executing time is 3 s
+iterator: 11
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43986 / 50319 = 0.874143
+	iteration executing time is 4 s
+iterator: 12
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43993 / 50319 = 0.874282
+	iteration executing time is 4 s
+iterator: 13
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43986 / 50319 = 0.874143
+	iteration executing time is 4 s
+iterator: 14
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43996 / 50319 = 0.874342
+	iteration executing time is 4 s
+iterator: 15
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43976 / 50319 = 0.873944
+	iteration executing time is 4 s
+iterator: 16
+shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43994 / 50319 = 0.874302
+	iteration executing time is 4 s
+iterator = 6 , max_dev_precision = 0.874779
+executing time is 71 s
