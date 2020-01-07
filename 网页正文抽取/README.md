@@ -1,0 +1,71 @@
+## 网页正文内容抽取
+
+### 一、目录文件
+
+```
+./data/:
+    1.html: 网页文件1
+    2.html: 网页文件2
+    out1.txt: 1.html的抽取结果
+    out2.txt: 2.html的抽取结果
+./src:
+    extraction.py: 抽取内容的代码
+./README.md: 使用说明
+```
+
+
+
+### 二、运行
+
+##### 1.运行环境
+
+​    python 3.6.3
+
+##### 2.运行方法
+
+```bash
+cd ./web-page-content-extraction
+python src/extraction.py
+```
+
+##### 3.参考结果
+
+```
+title:
+Teaching by Wenliang
+body:
+
+信息检索课程设计（Information Retrieval）Course Resources 
+			 教师: 陈文亮 
+			 助教: 郁俊杰
+			 2016春季学期，计算机学院大一本科生，选修课
+			 上机时间：周一15:10-17:00；地点：理工楼243
+编程作业提交细则 (
+            ppt)：重要！内含反作弊声明。请仔细阅读。只在上课现场收作业，请勿通过邮件提交。
+Course 1 (2.29)
+					 课程介绍及评分规则 (
+			ppt) Assignment 1 (word-count; 10分; 完成时间：2.29-3.7, 最迟3.14上机课检查，过期不侯)
+				 统计单词频率 (
+				ppt)  数据下载 (
+			sample-en.txt) Assignment 2 (word-seg; 15分; 完成时间：3.14-3.28, 最迟4.11上机课检查，过期不侯)
+				 中文分词：前向最大匹配 (
+				ppt)  数据下载 (
+				dict)  数据下载 (
+				sentences)  数据下载 (
+			answers) 
+	Last modified at (UTC/GMT): 
+
+link:
+ppt	http://hlt.suda.edu.cn/~wlchen/ir2016/rules.ppt
+ppt	http://hlt.suda.edu.cn/~wlchen/ir2016/L0.Introduction.ppt
+ppt	http://hlt.suda.edu.cn/~wlchen/ir2016/assignment-1-word-count/E1.ppt
+sample-en.txt	http://hlt.suda.edu.cn/~wlchen/ir2016/assignment-1-word-count/d1.txt
+ppt	http://hlt.suda.edu.cn/~wlchen/ir2016/assignment-2-word-seg/wordseg.ppt
+dict	http://hlt.suda.edu.cn/~wlchen/ir2016/assignment-2-word-seg/data/corpus.dict.txt
+sentences	http://hlt.suda.edu.cn/~wlchen/ir2016/assignment-2-word-seg/data/corpus.sentence.txt
+answers	http://hlt.suda.edu.cn/~wlchen/ir2016/assignment-2-word-seg/data/corpus.answer.txt
+
+```
+
+
+

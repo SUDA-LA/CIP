@@ -1,0 +1,8 @@
+title:
+网页题目
+body:
+主要内容
+新链接
+
+link:
+新链接	“http://a.com/a.html”
