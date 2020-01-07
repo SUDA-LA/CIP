@@ -14,9 +14,9 @@ Teach Assistant: 张月、巢佳媛、陈伟、凡子威
 
 ```sh
 # 复制仓库到本地并进入目录
-$ git clone git@github.com:SUDA-HLT/CIP.git && cd CIP
-# 切换到相应的分支(假设是dev)
-$ git checkout -b dev origin/dev
+$ git clone git@github.com:SUDA-LA/CIP.git && cd CIP
+# 切换到相应的分支
+$ git checkout -b <branch> origin/<branch>
 # ...
 # 主分支有变动请注意及时更新(optional)
 # $ git merge origin/master
@@ -38,7 +38,7 @@ $ git push
 
 ## 可选练习
 
-* BPNN ([slides](https://github.com/SUDA-HLT/CIP/blob/master/BPNN/slides/Deep_Learning_for_POSTagging.pptx))
+* BPNN ([slides](https://github.com/SUDA-LA/CIP/blob/master/BPNN/slides/Deep_Learning_for_POSTagging.pptx))
   * 推荐阅读（[英文版](http://neuralnetworksanddeeplearning.com/index.html)；[中文版](https://github.com/zhanggyb/nndl/releases/download/latest/nndl-ebook.pdf)）
   * PyTorch相关学习材料（[Deep Learning for NLP with Pytorch](https://pytorch.org/tutorials/beginner/deep_learning_nlp_tutorial.html)）
 * 序列标注
