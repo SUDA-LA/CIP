@@ -1,0 +1,67 @@
+nohup: ignoring input
+./data/train.conll:共803个句子,共20454个词。
+./data/dev.conll:共1910个句子,共50319个词。
+the total number of features is 81113
+using V to predict dev data...
+iterator: 0
+	shuffle the train data...
+	train准确率：18838 / 20454 = 0.920993
+	dev准确率：41917 / 50319 = 0.833025
+iterator: 1
+	shuffle the train data...
+	train准确率：19702 / 20454 = 0.963235
+	dev准确率：42737 / 50319 = 0.849321
+iterator: 2
+	shuffle the train data...
+	train准确率：20015 / 20454 = 0.978537
+	dev准确率：42956 / 50319 = 0.853674
+iterator: 3
+	shuffle the train data...
+	train准确率：19978 / 20454 = 0.976728
+	dev准确率：43070 / 50319 = 0.855939
+iterator: 4
+	shuffle the train data...
+	train准确率：20208 / 20454 = 0.987973
+	dev准确率：43112 / 50319 = 0.856774
+iterator: 5
+	shuffle the train data...
+	train准确率：20181 / 20454 = 0.986653
+	dev准确率：43153 / 50319 = 0.857589
+iterator: 6
+	shuffle the train data...
+	train准确率：20328 / 20454 = 0.993840
+	dev准确率：43173 / 50319 = 0.857986
+iterator: 7
+	shuffle the train data...
+	train准确率：20357 / 20454 = 0.995258
+	dev准确率：43188 / 50319 = 0.858284
+iterator: 8
+	shuffle the train data...
+	train准确率：20382 / 20454 = 0.996480
+	dev准确率：43198 / 50319 = 0.858483
+iterator: 9
+	shuffle the train data...
+	train准确率：20421 / 20454 = 0.998387
+	dev准确率：43213 / 50319 = 0.858781
+iterator: 10
+	shuffle the train data...
+	train准确率：20422 / 20454 = 0.998436
+	dev准确率：43212 / 50319 = 0.858761
+iterator: 11
+	shuffle the train data...
+	train准确率：20444 / 20454 = 0.999511
+	dev准确率：43213 / 50319 = 0.858781
+iterator: 12
+	shuffle the train data...
+	train准确率：20445 / 20454 = 0.999560
+	dev准确率：43216 / 50319 = 0.858841
+iterator: 13
+	shuffle the train data...
+	train准确率：20453 / 20454 = 0.999951
+	dev准确率：43217 / 50319 = 0.858860
+iterator: 14
+	shuffle the train data...
+	train准确率：20454 / 20454 = 1.000000
+	dev准确率：43217 / 50319 = 0.858860
+iterator = 13 , max_dev_precision = 0.858860
+executing time is 369 s
