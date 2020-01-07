@@ -1,0 +1,125 @@
+Set the seed for generating random numbers to 1
+Preprocess the data
+Corpus(
+  num of sentences: 46572
+  num of words: 55953
+  num of tags: 35
+  num of chars: 4608
+)
+Load the dataset
+  size of trainset: 46572
+  size of devset: 2079
+  size of testset: 2796
+Create Linear Model
+  use feature extracion optimization
+Use 46572 sentences to create the feature space
+The size of the feature space is 1400192
+Use online-training algorithm to train the model
+  epochs: 100
+  interval: 10
+
+Epoch 1 / 100:
+train: 986843 / 1057943 = 0.932794
+dev:   53991 / 59955 = 0.900525
+0:01:30.655383s elapsed
+
+Epoch 2 / 100:
+train: 1010270 / 1057943 = 0.954938
+dev:   54964 / 59955 = 0.916754
+0:01:16.778181s elapsed
+
+Epoch 3 / 100:
+train: 1019442 / 1057943 = 0.963608
+dev:   55295 / 59955 = 0.922275
+0:01:13.326694s elapsed
+
+Epoch 4 / 100:
+train: 1019447 / 1057943 = 0.963612
+dev:   55135 / 59955 = 0.919606
+0:01:17.373572s elapsed
+
+Epoch 5 / 100:
+train: 1031532 / 1057943 = 0.975036
+dev:   55534 / 59955 = 0.926261
+0:01:19.249473s elapsed
+
+Epoch 6 / 100:
+train: 1034864 / 1057943 = 0.978185
+dev:   55625 / 59955 = 0.927779
+0:01:06.179010s elapsed
+
+Epoch 7 / 100:
+train: 1036713 / 1057943 = 0.979933
+dev:   55492 / 59955 = 0.925561
+0:01:06.496748s elapsed
+
+Epoch 8 / 100:
+train: 1037086 / 1057943 = 0.980285
+dev:   55544 / 59955 = 0.926428
+0:01:07.012412s elapsed
+
+Epoch 9 / 100:
+train: 1039848 / 1057943 = 0.982896
+dev:   55715 / 59955 = 0.929280
+0:01:07.209945s elapsed
+
+Epoch 10 / 100:
+train: 1040760 / 1057943 = 0.983758
+dev:   55620 / 59955 = 0.927696
+0:01:04.188795s elapsed
+
+Epoch 11 / 100:
+train: 1042272 / 1057943 = 0.985187
+dev:   55623 / 59955 = 0.927746
+0:01:05.049415s elapsed
+
+Epoch 12 / 100:
+train: 1042380 / 1057943 = 0.985289
+dev:   55637 / 59955 = 0.927979
+0:01:05.422265s elapsed
+
+Epoch 13 / 100:
+train: 1036893 / 1057943 = 0.980103
+dev:   55602 / 59955 = 0.927396
+0:01:04.749256s elapsed
+
+Epoch 14 / 100:
+train: 1043800 / 1057943 = 0.986632
+dev:   55714 / 59955 = 0.929264
+0:01:04.794491s elapsed
+
+Epoch 15 / 100:
+train: 1043091 / 1057943 = 0.985961
+dev:   55584 / 59955 = 0.927095
+0:01:04.510944s elapsed
+
+Epoch 16 / 100:
+train: 1043024 / 1057943 = 0.985898
+dev:   55503 / 59955 = 0.925744
+0:01:03.429691s elapsed
+
+Epoch 17 / 100:
+train: 1045038 / 1057943 = 0.987802
+dev:   55705 / 59955 = 0.929114
+0:01:03.492820s elapsed
+
+Epoch 18 / 100:
+train: 1044518 / 1057943 = 0.987310
+dev:   55617 / 59955 = 0.927646
+0:01:10.385914s elapsed
+
+Epoch 19 / 100:
+train: 1045851 / 1057943 = 0.988570
+dev:   55584 / 59955 = 0.927095
+0:01:13.899993s elapsed
+
+Epoch 20 / 100:
+train: 1042206 / 1057943 = 0.985125
+dev:   55516 / 59955 = 0.925961
+0:01:13.793234s elapsed
+
+max accuracy of dev is 0.929280 at epoch 9
+mean time of each epoch is 0:01:09.899912s
+
+Accuracy of test: 75538 / 81578 = 0.925960
+0:23:50.356902s elapsed
