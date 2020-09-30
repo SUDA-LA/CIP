@@ -1,5 +1,7 @@
 # HLT基础编码练习
 
+[新生夏令营主页](http://hlt.suda.edu.cn/index.php/New-stu-training)
+
 ## 用法
 
 ```sh
@@ -19,7 +21,7 @@ $ git push
 
 * 汉字编码（C/C++语言实现）
 * 最大匹配分词
-* 网页正文抽取，请见2016春季学期《信息检索》课程主页
+* 网页正文抽取，请见2016春季学期《信息检索》([课程主页](http://hlt.suda.edu.cn/~zhli/teach/ir-2016-spring))
 * HMM ([slides](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/7-hmm-tagging/main.pdf))
 * LinearModel ([slides](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/9-linear-model/main2.pdf))
 * LogLinearModel ([slides](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/10-maxent-loglinear/main.pdf))
@@ -28,7 +30,7 @@ $ git push
 
 ## 数据
 
-根据不同任务从到[网址](http://hlt.suda.edu.cn/index.php/New-stu-training)中下载。
+根据不同任务从到[新生夏令营主页](http://hlt.suda.edu.cn/index.php/New-stu-training)中下载。
 
 ## 可选练习
 
