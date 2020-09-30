@@ -36,6 +36,10 @@ $ git push
 * GlobalLinearModel ([slides](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/11-global-linear-model/main.pdf))
 * CRF ([slides](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/12-crf/main.pdf))
 
+## 数据
+
+根据不同任务从到[网址](http://hlt.suda.edu.cn/index.php/New-stu-training)中下载。
+
 ## 可选练习
 
 * BPNN ([slides](https://github.com/SUDA-LA/CIP/blob/master/BPNN/slides/Deep_Learning_for_POSTagging.pptx))
