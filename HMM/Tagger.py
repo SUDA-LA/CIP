@@ -25,10 +25,9 @@ class Tagger:
             self.STOP_TAG = None
 
     class Config:
-        def __init__(self, smooth=1., check_point=None, evaluate_mode=False):
+        def __init__(self, smooth=1., check_point=None):
             self.smooth = smooth
             self.check_point = check_point
-            self.evaluate_mode = evaluate_mode
 
     def load_model(self, model_path):
         self.model = None
@@ -56,15 +55,11 @@ class Tagger:
 
         smooth = config.smooth
         check_point = config.check_point
-        evaluate_mode = config.evaluate_mode
+        dr = DataReader(data_path, random_seed=config.seed)
+        print(f"Set the seed for built-in generating random numbers to {config.seed}")
+        np.random.seed(config.seed)
+        print(f"Set the seed for numpy generating random numbers to {config.seed}")
 
-        if evaluate_mode:
-            dr = DataReader(data_path, random_seed=1)
-            print(f"Set the seed for built-in generating random numbers to 1")
-            np.random.seed(1)
-            print(f"Set the seed for numpy generating random numbers to 1")
-        else:
-            dr = DataReader(data_path)
         if test_path is None:
             test_reader = None
         else:
@@ -198,16 +193,3 @@ class Tagger:
         self.model.feature_size = len(self.model.features)
         self.model.tag_weight = np.zeros((self.model.tag_size, self.model.tag_size))
         self.model.weight = np.zeros((self.model.tag_size, self.model.feature_size))
-
-
-if __name__ == '__main__':
-    import os
-    tagger = Tagger()
-    if not os.path.exists('.\\model'):
-        os.mkdir('.\\model')
-    tagger.train('.\\data\\train.conll',
-                 dev_path='.\\data\\dev.conll',
-                 #test_path='.\\bigdata\\test.conll',
-                 config=tagger.Config(0.3, '.\\model\\'))  # small: 0.3 # big: 0.01
-    tagger.save_model('.\\model\\model.pickle')
-    tagger.load_model('.\\model\\model.pickle')

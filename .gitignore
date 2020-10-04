@@ -3,6 +3,9 @@ data
 bigdata
 *\.idea
 
+# ignore c++ build
+build
+
 # ignore model files
 model
 *.pickle

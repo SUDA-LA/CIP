@@ -4,6 +4,7 @@ import numpy as np
 from scipy.special import logsumexp
 from datetime import datetime
 from datetime import timedelta
+import os
 
 
 class Tagger:
@@ -33,8 +34,7 @@ class Tagger:
                      max_iter=30,
                      batch_size=50,
                      check_point=None,
-                     save_iter=5,
-                     evaluate_mode=False):
+                     save_iter=5):
             self.learning_rate = learning_rate
             self.c = c
             self.rho = rho
@@ -43,7 +43,6 @@ class Tagger:
             self.check_point = check_point
             self.save_iter = save_iter
             self.delay_step = delay_step
-            self.evaluate_mode = evaluate_mode
 
     def load_model(self, model_path):
         self.model = None
@@ -77,15 +76,12 @@ class Tagger:
         check_point = config.check_point
         save_iter = config.save_iter
         delay_step = config.delay_step
-        evaluate_mode = config.evaluate_mode
 
-        if evaluate_mode:
-            dr = DataReader(data_path, random_seed=1)
-            print(f"Set the seed for built-in generating random numbers to 1")
-            np.random.seed(1)
-            print(f"Set the seed for numpy generating random numbers to 1")
-        else:
-            dr = DataReader(data_path)
+        dr = DataReader(data_path, random_seed=config.seed)
+        print(f"Set the seed for built-in generating random numbers to {config.seed}")
+        np.random.seed(config.seed)
+        print(f"Set the seed for numpy generating random numbers to {config.seed}")
+
         if test_path is None:
             test_reader = None
         else:
@@ -171,6 +167,7 @@ class Tagger:
             if test_reader is not None:
                 _, _, test_acc = self.evaluate(eval_reader=test_reader)
                 print(f"iter: {iter_count} test  accuracy: {test_acc :.5%}")
+
             spend = datetime.now() - start
             times.append(spend)
             if iter_count >= max_iter:
@@ -178,12 +175,12 @@ class Tagger:
                 avg_spend = sum(times, timedelta(0)) / len(times)
                 print(f"iter: training average spend time: {avg_spend}s\n")
                 if check_point:
-                    self.save_model(check_point + 'check_point_finish.pickle')
+                    self.save_model(os.path.join(check_point,'check_point_finish.pickle'))
             else:
                 if c != 0:
                     weight *= (1 - c)
                 if check_point and (iter_count % save_iter) == 0:
-                    self.save_model(check_point + 'check_point_' + str(iter_count) + '.pickle')
+                    self.save_model(os.path.join(check_point, f'check_point_{iter_count}.pickle'))
                 print(f"iter: {iter_count} spend time: {spend}s\n")
 
     def save_model(self, model_path):
@@ -366,23 +363,3 @@ class Tagger:
             for now_tag in t.values()
         ])
 
-
-if __name__ == '__main__':
-    import os
-    tagger = Tagger()
-    if not os.path.exists('.\\model'):
-        os.mkdir('.\\model')
-    # tagger.train('.\\bigdata\\train.conll', tagger.Config(0, 20, '.\\model\\', 1))
-    tagger.train('.\\data\\train.conll',
-                 dev_path='.\\data\\dev.conll',
-                 #test_path='.\\bigdata\\test.conll',
-                 config=Tagger.Config(learning_rate=0.4,  # data 0.4 is fine big data use < 0.1
-                                      c=0,
-                                      rho=1,
-                                      delay_step=100000,
-                                      max_iter=50,
-                                      batch_size=50,
-                                      check_point='.\\model\\',
-                                      save_iter=5))
-    tagger.save_model('.\\model\\model.pickle')
-    tagger.load_model('.\\model\\model.pickle')

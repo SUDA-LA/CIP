@@ -3,7 +3,7 @@ from datetime import timedelta
 from DataReader import DataReader
 import numpy as np
 from TaggerBase import TaggerBase
-
+import os
 
 class Tagger(TaggerBase):
     def __init__(self, model_path=None):
@@ -29,15 +29,14 @@ class Tagger(TaggerBase):
         save_iter = config.save_iter
         averaged_perceptron = config.averaged_perceptron
         random_lr = config.random_lr
-        evaluate_mode = config.evaluate_mode
+        max_lr = config.max_lr
+        min_lr = config.min_lr
 
-        if evaluate_mode:
-            dr = DataReader(data_path, random_seed=1)
-            print("Set the seed for built-in generating random numbers to 1")
-            np.random.seed(1)
-            print("Set the seed for numpy generating random numbers to 1")
-        else:
-            dr = DataReader(data_path)
+        dr = DataReader(data_path, random_seed=config.seed)
+        print(f"Set the seed for built-in generating random numbers to {config.seed}")
+        np.random.seed(config.seed)
+        print(f"Set the seed for numpy generating random numbers to {config.seed}")
+
         if test_path is None:
             test_reader = None
         else:
@@ -89,12 +88,12 @@ class Tagger(TaggerBase):
                         for k in range(s_len)
                     ]
 
-                    if random_lr is None:
+                    if random_lr:
+                        p_rate = min_lr + ((max_lr - min_lr) * np.random.random())
+                        n_rate = min_lr + ((max_lr - min_lr) * np.random.random())
+                    else:
                         p_rate = 1
                         n_rate = 1
-                    else:
-                        p_rate = random_lr()
-                        n_rate = random_lr()
 
                     for k in range(s_len):
                         gt_features_k = gt_features[k]
@@ -139,10 +138,10 @@ class Tagger(TaggerBase):
                 avg_spend = sum(times, timedelta(0)) / len(times)
                 print(f"iter: training average spend time: {avg_spend}s\n")
                 if check_point:
-                    self.save_model(check_point + 'check_point_finish.pickle')
+                    self.save_model(os.path.join(check_point,'check_point_finish.pickle'))
             else:
                 if check_point and (iter_count % save_iter) == 0:
-                    self.save_model(check_point + 'check_point_' + str(iter_count) + '.pickle')
+                    self.save_model(os.path.join(check_point, f'check_point_{iter_count}.pickle'))
                 print(f"iter: {iter_count} spend time: {spend}s\n")
 
     def _tag(self, s, index, averaged_perceptron=False):
@@ -230,20 +229,3 @@ class Tagger(TaggerBase):
         self.model.feature_size = len(self.model.features)
         self.model.weight = np.zeros(self.model.feature_size)
         self.model.v = np.zeros(self.model.feature_size)
-
-
-if __name__ == '__main__':
-    import os
-    tagger = Tagger()
-    if not os.path.exists('.\\model'):
-        os.mkdir('.\\model')
-    tagger.train('.\\data\\train.conll',
-                 dev_path='.\\data\\dev.conll',
-                 # test_path='.\\bigdata\\test.conll',
-                 config=tagger.Config(0, 100, '.\\model\\', 5,
-                                      averaged_perceptron=False,
-                                      random_lr=None,
-                                      evaluate_mode=True))
-                                      # random_lr=lambda: np.random.normal(1, 0.2)))
-    tagger.save_model('.\\model\\data_model.pickle')
-    tagger.load_model('.\\model\\data_model.pickle')

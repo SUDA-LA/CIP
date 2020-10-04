@@ -4,7 +4,7 @@ from datetime import timedelta
 from DataReader import DataReader
 import numpy as np
 from scipy.special import logsumexp
-
+import os
 
 class Tagger:
     def __init__(self, model_path=None):
@@ -31,8 +31,7 @@ class Tagger:
                      max_iter=30,
                      batch_size=50,
                      check_point=None,
-                     save_iter=5,
-                     evaluate_mode=False):
+                     save_iter=5):
             self.learning_rate = learning_rate
             self.c = c
             self.rho = rho
@@ -41,7 +40,6 @@ class Tagger:
             self.check_point = check_point
             self.save_iter = save_iter
             self.delay_step = delay_step
-            self.evaluate_mode = evaluate_mode
 
     def load_model(self, model_path):
         self.model = None
@@ -75,15 +73,12 @@ class Tagger:
         check_point = config.check_point
         save_iter = config.save_iter
         delay_step = config.delay_step
-        evaluate_mode = config.evaluate_mode
 
-        if evaluate_mode:
-            dr = DataReader(data_path, random_seed=1)
-            print(f"Set the seed for built-in generating random numbers to 1")
-            np.random.seed(1)
-            print(f"Set the seed for numpy generating random numbers to 1")
-        else:
-            dr = DataReader(data_path)
+        dr = DataReader(data_path, random_seed=config.seed)
+        print(f"Set the seed for built-in generating random numbers to {config.seed}")
+        np.random.seed(config.seed)
+        print(f"Set the seed for numpy generating random numbers to {config.seed}")
+
         if test_path is None:
             test_reader = None
         else:
@@ -152,12 +147,12 @@ class Tagger:
                 avg_spend = sum(times, timedelta(0)) / len(times)
                 print(f"iter: training average spend time: {avg_spend}s\n")
                 if check_point:
-                    self.save_model(check_point + 'check_point_finish.pickle')
+                    self.save_model(os.path.join(check_point,'check_point_finish.pickle'))
             else:
                 if c != 0:
                     weight *= (1 - c)
                 if check_point and (iter_count % save_iter) == 0:
-                    self.save_model(check_point + 'check_point_' + str(iter_count) + '.pickle')
+                    self.save_model(os.path.join(check_point, f'check_point_{iter_count}.pickle'))
                 print(f"iter: {iter_count} spend time: {spend}s\n")
 
     def save_model(self, model_path):
@@ -255,23 +250,3 @@ class Tagger:
         self.model.tag_size = len(t)
         self.model.feature_size = len(self.model.features)
         self.model.weight = np.zeros((self.model.tag_size, self.model.feature_size))
-
-
-if __name__ == '__main__':
-    import os
-    tagger = Tagger()
-    if not os.path.exists('.\\model'):
-        os.mkdir('.\\model')
-    tagger.train('.\\data\\train.conll',
-                 dev_path='.\\data\\dev.conll',
-                 # test_path='.\\bigdata\\test.conll',
-                 config=Tagger.Config(learning_rate=0.2,  # data 0.5 is fine
-                                      c=0,
-                                      rho=1,
-                                      delay_step=100000,
-                                      max_iter=100,
-                                      batch_size=50,
-                                      check_point='.\\model\\',
-                                      save_iter=5))
-    tagger.save_model('.\\model\\model.pickle')
-    tagger.load_model('.\\model\\model.pickle')

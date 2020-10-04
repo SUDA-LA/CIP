@@ -16,15 +16,17 @@ class TaggerBase(abc.ABC):
                      check_point=None,
                      save_iter=5,
                      averaged_perceptron=False,
-                     random_lr=None,
-                     evaluate_mode=False):
+                     random_lr=False,
+                     max_lr=1.2,
+                     min_lr=0.8):
             self.stop_threshold = stop_threshold
             self.max_iter = max_iter
             self.check_point = check_point
             self.save_iter = save_iter
             self.averaged_perceptron = averaged_perceptron
             self.random_lr = random_lr
-            self.evaluate_mode = evaluate_mode
+            self.max_lr = max_lr
+            self.min_lr = min_lr
 
     def load_model(self, model_path):
         with open(model_path, 'rb') as file:

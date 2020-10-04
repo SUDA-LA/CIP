@@ -36,7 +36,7 @@ def formal_output(title, contents, anchors):
 
 
 if __name__ == '__main__':
-    title, contents, anchors = parse_html('./data/1.html')
+    title, contents, anchors = parse_html('./data/1.html', encoding='UTF-8')
     print(formal_output(title, contents, anchors))
     print()
     title, contents, anchors = parse_html('./data/2.html', encoding='UTF-8')

@@ -1,14 +1,16 @@
 import pickle
 from datetime import datetime
 from datetime import timedelta
-from Corpus import *
+from Corpus import Dataset, DataLoader, DataReader
 import numpy as np
 from utils import sigmoid, softmax, sigmoid_backward_simple
+import os
 
 class Tagger:
     def __init__(self, model_path=None):
         self.model_name = 'BPNN Tagger'
         self.model = None
+        self.data_reader = None
         if model_path:
             self.load_model(model_path)
 
@@ -95,19 +97,17 @@ class Tagger:
                      check_point=None,
                      save_iter=5,
                      hidden_size=100,
-                     lr=0.01,
-                     evaluate_mode=False):
+                     lr=0.01):
             self.stop_threshold = stop_threshold
             self.max_iter = max_iter
             self.check_point = check_point
             self.save_iter = save_iter
             self.hidden_size = hidden_size
             self.lr = lr
-            self.evaluate_mode = evaluate_mode
 
     def load_model(self, model_path):
         with open(model_path, 'rb') as file:
-            self.model = pickle.load(file)
+            self.model, self.data_reader = pickle.load(file)
 
     def evaluate(self, eval_dataset: Dataset):
         dl = DataLoader(eval_dataset)
@@ -123,7 +123,7 @@ class Tagger:
 
     def save_model(self, model_path):
         with open(model_path, 'wb') as file:
-            pickle.dump(self.model, file)
+            pickle.dump((self.model, self.data_reader), file)
 
     def tag(self, s, index=None):
         pass
@@ -138,17 +138,17 @@ class Tagger:
         save_iter = config.save_iter
         hidden_size = config.hidden_size
         lr = config.lr
-        evaluate_mode = config.evaluate_mode
 
-        dr = DataReader(data_path, test_path, dev_path, embedding_path)
+        dr = DataReader(data_path, embedding_path)
+        self.data_reader = dr
+        train_dataset = dr.to_dataset(data_path)
+        dev_dataset = dr.to_dataset(dev_path)
+        test_dataset = dr.to_dataset(test_path)
 
-        if evaluate_mode:
-            train_loader = DataLoader(dr.train_dataset, 50, True)
-            print(f"Set the seed for built-in generating random numbers to 1")
-            np.random.seed(1)
-            print(f"Set the seed for numpy generating random numbers to 1")
-        else:
-            train_loader = DataLoader(dr.train_dataset, 50, True)
+        train_loader = DataLoader(train_dataset, config.batch_size, True)
+        print(f"Set the seed for built-in generating random numbers to 1")
+        np.random.seed(1)
+        print(f"Set the seed for numpy generating random numbers to 1")
 
         self.model = self.Model(5, dr.tag_size, dr.embed_size, hidden_size)
         self.model.embed = dr.embed
@@ -178,11 +178,11 @@ class Tagger:
                     print(f"gt  {gt}")
             iter_count += 1
 
-            _, _, train_acc = self.evaluate(eval_dataset=dr.train_dataset)
+            _, _, train_acc = self.evaluate(eval_dataset=train_dataset)
             print(f"iter: {iter_count} train accuracy: {train_acc :.5%}")
-            _, _, dev_acc = self.evaluate(eval_dataset=dr.dev_dataset)
+            _, _, dev_acc = self.evaluate(eval_dataset=dev_dataset)
             print(f"iter: {iter_count} dev   accuracy: {dev_acc :.5%}")
-            _, _, test_acc = self.evaluate(eval_dataset=dr.test_dataset)
+            _, _, test_acc = self.evaluate(eval_dataset=test_dataset)
             print(f"iter: {iter_count} test  accuracy: {test_acc :.5%}")
 
             end = datetime.now()
@@ -195,25 +195,9 @@ class Tagger:
                 avg_spend = sum(times, timedelta(0)) / len(times)
                 print(f"iter: training average spend time: {avg_spend}s\n")
                 if check_point:
-                    self.save_model(check_point + 'check_point_finish.pickle')
+                    self.save_model(os.path.join(check_point,'check_point_finish.pickle'))
             else:
                 if check_point and (iter_count % save_iter) == 0:
-                    self.save_model(check_point + 'check_point_' + str(iter_count) + '.pickle')
+                    self.save_model(os.path.join(check_point, f'check_point_{iter_count}.pickle'))
                 print(f"iter: {iter_count} spend time: {spend}s\n")
 
-
-if __name__ == '__main__':
-    import os
-    tagger = Tagger()
-    if not os.path.exists('.\\model'):
-        os.mkdir('.\\model')
-    tagger.train('.\\data\\ctb5\\train.conll',
-                 dev_path='.\\data\\ctb5\\dev.conll',
-                 test_path='.\\data\\ctb5\\test.conll',
-                 embedding_path='.\\data\\embed.txt',
-                 config=tagger.Config(0, 100, '.\\model\\', 5,
-                                      hidden_size=300,
-                                      lr=0.01))  # ,
-                                      # evaluate_mode=True))
-    tagger.save_model('.\\model\\data_model.pickle')
-    tagger.load_model('.\\model\\data_model.pickle')

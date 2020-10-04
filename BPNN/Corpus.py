@@ -70,10 +70,9 @@ class DataReader:
     EOS = '<EOS>'
     PAD = '<PAD>'
 
-    def __init__(self, train_path, test_path, dev_path, embed_path, encoding='UTF-8'):
+    def __init__(self, train_path, embed_path, encoding='UTF-8'):
         train_data = self.parse(train_path, encoding=encoding)
-        test_data = self.parse(test_path, encoding=encoding)
-        dev_data = self.parse(dev_path, encoding=encoding)
+        self.encoding = encoding
 
         self.word_set, self.char_set, self.tag_set = self.extract_sets(train_data[0], train_data[1])
         self.word_set = [self.PAD, self.UNK, self.SOS, self.EOS] + self.word_set
@@ -102,10 +101,6 @@ class DataReader:
 
         self.embed = self._load_embed(embed_path, encoding=encoding)
         self.embed_size = self.embed.shape[1]
-
-        self.train_dataset = self.to_dataset(train_data)
-        self.test_dataset = self.to_dataset(test_data)
-        self.dev_dataset = self.to_dataset(dev_data)
 
     def _load_embed(self, embed_path, encoding='UTF-8'):
         with open(embed_path, "r", encoding=encoding) as fe:
@@ -183,7 +178,8 @@ class DataReader:
         tag_set = sorted(set(tag for tag_sequence in tags for tag in tag_sequence))
         return word_set, char_set, tag_set
 
-    def to_dataset(self, data, n_gram=2):
+    def to_dataset(self, data_path, n_gram=2):
+        data = self.parse(data_path, encoding=self.encoding)
         x, y = [], []
         D = 2 * n_gram + 1
         for sentence, label in zip(*data):
