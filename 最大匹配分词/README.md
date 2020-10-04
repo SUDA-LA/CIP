@@ -2,16 +2,18 @@
 
 ### 目录结构
 
-> ├─src：代码文件夹
-> |  ├─Config.py：配置文件
-> |  ├─data_processor.py：数据处理器代码
-> |  ├─run.py：运行代码
-> |  ├─word_segmentor.py：分词器代码
-> ├─data
-> |  ├─data.conll：原始CoNLL数据
-> |  ├─data.out：分词结果文件
-> |  ├─data.txt：毛文本文件
-> |  └word.dict：词典文件
+``` 
+ ├─src：代码文件夹
+ |  ├─Config.py：配置文件
+ |  ├─data_processor.py：数据处理器代码
+ |  ├─run.py：运行代码
+ |  ├─word_segmentor.py：分词器代码
+ ├─data
+ |  ├─data.conll：原始CoNLL数据
+ |  ├─data.out：分词结果文件
+ |  ├─data.txt：毛文本文件
+ |  └word.dict：词典文件
+ ```
 
 ### 运行方式
 
