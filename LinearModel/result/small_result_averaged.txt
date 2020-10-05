@@ -1,0 +1,127 @@
+train.conll.txt共803个句子，共20454个词
+dev.conll.txt共1910个句子，共50319个词
+ the total number of features is 73061
+using V to predict dev data...
+iterator 0
+train.conll.txt=0.932923
+dev.conll.txt=0.833542
+Use Time:0.441
+iterator 1
+train.conll.txt=0.96211
+dev.conll.txt=0.848904
+Use Time:0.417
+iterator 2
+train.conll.txt=0.97311
+dev.conll.txt=0.854608
+Use Time:0.44
+iterator 3
+train.conll.txt=0.977315
+dev.conll.txt=0.85743
+Use Time:0.42
+iterator 4
+train.conll.txt=0.980102
+dev.conll.txt=0.858682
+Use Time:0.409
+iterator 5
+train.conll.txt=0.981813
+dev.conll.txt=0.859099
+Use Time:0.418
+iterator 6
+train.conll.txt=0.982595
+dev.conll.txt=0.859457
+Use Time:0.42
+iterator 7
+train.conll.txt=0.982791
+dev.conll.txt=0.859457
+Use Time:0.422
+iterator 8
+train.conll.txt=0.982888
+dev.conll.txt=0.859477
+Use Time:0.424
+iterator 9
+train.conll.txt=0.982986
+dev.conll.txt=0.859357
+Use Time:0.425
+iterator 10
+train.conll.txt=0.983035
+dev.conll.txt=0.859357
+Use Time:0.424
+iterator 11
+train.conll.txt=0.983133
+dev.conll.txt=0.859417
+Use Time:0.415
+iterator 12
+train.conll.txt=0.983133
+dev.conll.txt=0.859457
+Use Time:0.421
+iterator 13
+train.conll.txt=0.983231
+dev.conll.txt=0.859457
+Use Time:0.424
+iterator 14
+train.conll.txt=0.983231
+dev.conll.txt=0.859457
+Use Time:0.42
+iterator 15
+train.conll.txt=0.983328
+dev.conll.txt=0.859496
+Use Time:0.42
+iterator 16
+train.conll.txt=0.983622
+dev.conll.txt=0.859516
+Use Time:0.413
+iterator 17
+train.conll.txt=0.983768
+dev.conll.txt=0.859616
+Use Time:0.413
+iterator 18
+train.conll.txt=0.984013
+dev.conll.txt=0.859735
+Use Time:0.417
+iterator 19
+train.conll.txt=0.984257
+dev.conll.txt=0.859874
+Use Time:0.423
+iterator 20
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.425
+iterator 21
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.42
+iterator 22
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.42
+iterator 23
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.427
+iterator 24
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.413
+iterator 25
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.419
+iterator 26
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.418
+iterator 27
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.422
+iterator 28
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.414
+iterator 29
+train.conll.txt=0.984257
+dev.conll.txt=0.859973
+Use Time:0.417
+train.conll.txt最大值是：=0.984257在19次
+dev.conll.txt最大值是：=0.859973在20次
+Use Time:12.692

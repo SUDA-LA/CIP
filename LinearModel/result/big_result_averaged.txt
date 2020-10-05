@@ -1,0 +1,101 @@
+train.conll.txt共46572个句子，共1057943个词
+dev.conll.txt共2079个句子，共59955个词
+test.conll.txt共2796个句子，共81578个词
+ the total number of features is 1444523
+using V to predict dev data...
+iterator 0
+train.conll.txt=0.940471
+dev.conll.txt=0.925994
+test.conll.txt=0.925335
+Use Time:13.659
+iterator 1
+train.conll.txt=0.954461
+dev.conll.txt=0.930865
+test.conll.txt=0.930606
+Use Time:13.415
+iterator 2
+train.conll.txt=0.961004
+dev.conll.txt=0.933183
+test.conll.txt=0.932408
+Use Time:13.378
+iterator 3
+train.conll.txt=0.965181
+dev.conll.txt=0.93395
+test.conll.txt=0.933033
+Use Time:13.38
+iterator 4
+train.conll.txt=0.96823
+dev.conll.txt=0.934684
+test.conll.txt=0.933328
+Use Time:13.331
+iterator 5
+train.conll.txt=0.970603
+dev.conll.txt=0.935051
+test.conll.txt=0.933806
+Use Time:13.301
+iterator 6
+train.conll.txt=0.972381
+dev.conll.txt=0.935585
+test.conll.txt=0.933855
+Use Time:13.332
+iterator 7
+train.conll.txt=0.973836
+dev.conll.txt=0.935852
+test.conll.txt=0.933732
+Use Time:13.32
+iterator 8
+train.conll.txt=0.975045
+dev.conll.txt=0.936035
+test.conll.txt=0.933855
+Use Time:13.386
+iterator 9
+train.conll.txt=0.976039
+dev.conll.txt=0.936236
+test.conll.txt=0.933867
+Use Time:13.299
+iterator 10
+train.conll.txt=0.976961
+dev.conll.txt=0.936669
+test.conll.txt=0.933953
+Use Time:13.302
+iterator 11
+train.conll.txt=0.977758
+dev.conll.txt=0.936686
+test.conll.txt=0.934247
+Use Time:13.268
+iterator 12
+train.conll.txt=0.97845
+dev.conll.txt=0.936719
+test.conll.txt=0.934333
+Use Time:13.312
+iterator 13
+train.conll.txt=0.979091
+dev.conll.txt=0.936769
+test.conll.txt=0.934357
+Use Time:13.302
+iterator 14
+train.conll.txt=0.979689
+dev.conll.txt=0.936969
+test.conll.txt=0.934259
+Use Time:13.305
+iterator 15
+train.conll.txt=0.980223
+dev.conll.txt=0.937103
+test.conll.txt=0.934161
+Use Time:13.302
+iterator 16
+train.conll.txt=0.980668
+dev.conll.txt=0.93722
+test.conll.txt=0.934321
+Use Time:13.29
+iterator 17
+train.conll.txt=0.981048
+dev.conll.txt=0.937153
+test.conll.txt=0.934345
+Use Time:13.266
+iterator 18
+train.conll.txt=0.981418
+dev.conll.txt=0.937303
+test.conll.txt=0.934296
+Use Time:13.406
+iterator 19

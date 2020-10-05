@@ -1,0 +1,107 @@
+train共46572个句子，共1057943个词
+dev共2079个句子，共59955个词
+test共2796个句子，共81578个词
+iterator 0
+train=0.900328
+dev=0.878359
+test=0.87401
+Use Time:16.427
+iterator 1
+train=0.914853
+dev=0.887516
+test=0.883596
+Use Time:16.758
+iterator 2
+train=0.924088
+dev=0.894021
+test=0.889529
+Use Time:16.26
+iterator 3
+train=0.930799
+dev=0.89834
+test=0.892925
+Use Time:16.255
+iterator 4
+train=0.950787
+dev=0.909682
+test=0.905121
+Use Time:16.285
+iterator 5
+train=0.953972
+dev=0.909932
+test=0.906543
+Use Time:16.212
+iterator 6
+train=0.946927
+dev=0.907647
+test=0.902327
+Use Time:16.183
+iterator 7
+train=0.958181
+dev=0.913785
+test=0.910773
+Use Time:16.194
+iterator 8
+train=0.959354
+dev=0.913885
+test=0.91038
+Use Time:16.187
+iterator 9
+train=0.960646
+dev=0.913835
+test=0.911533
+Use Time:16.181
+iterator 10
+train=0.960093
+dev=0.912818
+test=0.909976
+Use Time:16.149
+iterator 11
+train=0.956416
+dev=0.911317
+test=0.906311
+Use Time:16.122
+iterator 12
+train=0.962116
+dev=0.913185
+test=0.909142
+Use Time:16.137
+iterator 13
+train=0.963881
+dev=0.915253
+test=0.910699
+Use Time:16.183
+iterator 14
+train=0.96582
+dev=0.916788
+test=0.91304
+Use Time:16.227
+iterator 15
+train=0.9667
+dev=0.915653
+test=0.913163
+Use Time:16.144
+iterator 16
+train=0.966027
+dev=0.91607
+test=0.913187
+Use Time:16.148
+iterator 17
+train=0.965398
+dev=0.914769
+test=0.911851
+Use Time:16.152
+iterator 18
+train=0.967923
+dev=0.916137
+test=0.913053
+Use Time:16.125
+iterator 19
+train=0.96623
+dev=0.914603
+test=0.911336
+Use Time:16.166
+train最大值是:=0.967923
+dev最大值是:=0.916788
+test最大值是:=0.913187
+Use Time:324.554

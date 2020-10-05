@@ -1,0 +1,137 @@
+train共46572个句子，共1057943个词
+dev共2079个句子，共59955个词
+test共2796个句子，共81578个词
+iterator 0
+train=0.933313
+dev=0.904812
+test=0.902241
+Use Time:17.563
+iterator 1
+train=0.95129
+dev=0.915553
+test=0.910773
+Use Time:17.389
+iterator 2
+train=0.961962
+dev=0.91989
+test=0.917
+Use Time:18.6
+iterator 3
+train=0.970715
+dev=0.92461
+test=0.922234
+Use Time:17.959
+iterator 4
+train=0.964834
+dev=0.919356
+test=0.915578
+Use Time:17.821
+iterator 5
+train=0.97775
+dev=0.926045
+test=0.923215
+Use Time:17.742
+iterator 6
+train=0.980094
+dev=0.926728
+test=0.923043
+Use Time:17.743
+iterator 7
+train=0.981617
+dev=0.927145
+test=0.923067
+Use Time:17.729
+iterator 8
+train=0.982035
+dev=0.927779
+test=0.92471
+Use Time:17.711
+iterator 9
+train=0.982769
+dev=0.92868
+test=0.923975
+Use Time:17.752
+iterator 10
+train=0.983026
+dev=0.927796
+test=0.925728
+Use Time:17.742
+iterator 11
+train=0.986495
+dev=0.928813
+test=0.925372
+Use Time:17.684
+iterator 12
+train=0.986436
+dev=0.928913
+test=0.926377
+Use Time:17.768
+iterator 13
+train=0.985854
+dev=0.928747
+test=0.925642
+Use Time:17.735
+iterator 14
+train=0.985119
+dev=0.926612
+test=0.923705
+Use Time:17.742
+iterator 15
+train=0.987815
+dev=0.928296
+test=0.924465
+Use Time:17.76
+iterator 16
+train=0.983209
+dev=0.926045
+test=0.92384
+Use Time:17.776
+iterator 17
+train=0.987756
+dev=0.929747
+test=0.927235
+Use Time:17.753
+iterator 18
+train=0.988964
+dev=0.928697
+test=0.926353
+Use Time:17.684
+iterator 19
+train=0.983721
+dev=0.925561
+test=0.922209
+Use Time:17.748
+iterator 20
+train=0.98794
+dev=0.930531
+test=0.92726
+Use Time:17.721
+iterator 21
+train=0.989654
+dev=0.930831
+test=0.927628
+Use Time:17.946
+iterator 22
+train=0.989511
+dev=0.929447
+test=0.927113
+Use Time:17.905
+iterator 23
+train=0.98992
+dev=0.929097
+test=0.927382
+Use Time:17.836
+iterator 24
+train=0.989982
+dev=0.929731
+test=0.928265
+Use Time:17.791
+iterator 25
+train=0.990064
+dev=0.929314
+test=0.927419
+Use Time:17.659
+train最大值是:=0.990064
+dev最大值是:=0.930831
+test最大值是:=0.928265
+Use Time:462.345
