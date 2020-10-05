@@ -2,6 +2,8 @@
 
 [新生夏令营主页](http://hlt.suda.edu.cn/index.php/New-stu-training)
 
+w=2
+
 ## 用法
 
 ```sh
