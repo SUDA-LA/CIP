@@ -39,4 +39,15 @@ python3 run.py
 
 ### 学习过程中的笔记和思考
 
-https://hillzhang1999.gitee.io/2020/03/17/nlp-zi-xue-bi-ji-yin-ma-er-ke-fu-mo-xing/
+[NLP自学笔记：隐马尔可夫模型](https://hillzhang1999.gitee.io/2020/03/17/nlp-zi-xue-bi-ji-yin-ma-er-ke-fu-mo-xing/)
+
+### 参考资料（部分）
+
+- [李正华老师的课件](http://hlt.suda.edu.cn/~zhli/teach/cip-2015-fall/7-hmm-tagging/main.pdf)
+- 李航老师的《统计学习方法》第10章
+- [HMM学习最佳范例](http://www.comp.leeds.ac.uk/roger/HiddenMarkovModels/html_dev/main.html)
+- [隐马尔科夫模型（Hidden Markov Model，HMM）](https://blog.csdn.net/lukabruce/article/details/82380511)
+- [一站式解决：隐马尔可夫模型（HMM）全过程推导及实现](https://zhuanlan.zhihu.com/p/85454896)
+- [如何用简单易懂的例子解释条件随机场（CRF）模型？它和HMM有什么区别？](https://www.zhihu.com/question/35866596)
+- [如何用简单易懂的例子解释隐马尔可夫模型？](https://www.zhihu.com/question/20962240)
+
