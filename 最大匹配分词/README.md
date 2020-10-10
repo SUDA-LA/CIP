@@ -22,7 +22,7 @@ python 3.8
 
 ```
 $ cd ./src
-$ python3 max_match.py
+$ python3 max_match.py #运行最大匹配分词文件
 ```
 
 #### 3.参考结果
