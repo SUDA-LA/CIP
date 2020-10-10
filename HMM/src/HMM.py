@@ -27,7 +27,7 @@ class data_set:
                 tag=[]
         f.close()
         sentence_count=len(self.sentences)
-        print("数据集%s中共有%d个句子，%d个词！" %(filename,sentence_count,word_num))
+        print("数据集%s中共有%d个句子，%d个词！" %(filename.split("/")[-1],sentence_count,word_num))
 
 
 class HMM:
@@ -202,9 +202,9 @@ class HMM:
             for j in range(len(correct_tag)):
                 if(predict_tag[j]==correct_tag[j]):
                     words_correct_count+=1
-        print("数据集%s一共有%d个句子。"%(dev_data,sentence_count))
-        print("数据集%s一共有%d个单词，预测正确%d个单词。"%(dev_data,words_all_count,words_correct_count))
-        print("数据集%s使用隐马尔可夫模型预测的准确率为:%.2f%%"%(dev_data,(words_correct_count/words_all_count)*100))
+        print("数据集%s一共有%d个句子。"%(dev_data.split("/")[-1],sentence_count))
+        print("数据集%s一共有%d个单词，预测正确%d个单词。"%(dev_data.split("/")[-1],words_all_count,words_correct_count))
+        print("数据集%s使用隐马尔可夫模型预测的准确率为:%.2f%%"%(dev_data.split("/")[-1],(words_correct_count/words_all_count)*100))
 
 
 

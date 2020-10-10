@@ -4,14 +4,16 @@
 
 ```
 ./src/:
-   train 大数据训练集
-   dev 大数据开发集
-   test 大数据测试集
-   train.conll 小数据训练集
-   dev.conll 小数据开发集
    HMM.py 二元一阶隐马尔科夫模型
    config.py 配置文件
    run.py 运行文件
+./big_data/:
+   train 大数据训练集
+   dev 大数据开发集
+   test 大数据测试集
+./small_data/:
+   train.conll 小数据训练集
+   dev.conll 小数据开发集
 ./result/:
    big_data_result.txt 大数据集的预测结果
    small_data_result.txt 小数据集的预测结果
