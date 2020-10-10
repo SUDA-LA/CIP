@@ -1,14 +1,15 @@
-## 正向最大匹配分词
+## 最大匹配分词
 
 ### 一.目录结构
 
 ```
 ./data/:
-   data.conll
+   data.conll #数据集
 ./src/:
-   max_match.py
+   max_match.py #最大匹配分词代码文件
 ./result/:
-   result.txt
+   result.txt #评价结果
+./README.md #使用说明
 ```
 
 ### 二.代码运行
