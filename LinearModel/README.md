@@ -39,12 +39,12 @@ class config:
         self.iterations=50 #设置最大迭代次数
         self.max_iterations=10 #设置迭代多少次没有提升就退出
         if(isbigdata):
-            self.train="big_data/train"
-            self.test="big_data/test"
-            self.dev="big_data/dev"
+            self.train="./big_data/train"
+            self.test="./big_data/test"
+            self.dev="./big_data/dev"
         else:
-            self.train="small_data/train.conll"
-            self.dev="small_data/dev.conll"
+            self.train="./small_data/train.conll"
+            self.dev="./small_data/dev.conll"
 ```
 
 ```
