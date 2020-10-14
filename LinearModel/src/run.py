@@ -26,7 +26,7 @@ if __name__ == '__main__':
             linear.create_feature_space()
             linear.Online_Training(iterations,max_iterations,average_perceptron,shuttle)
             endtime = datetime.datetime.now()
-            print("本次预测训练和预测%s所花费的总时间是：%s秒"%(fdev.split("/")[-1],str((endtime-starttime).seconds)))
+            print("本次训练和预测%s所花费的总时间是：%s秒"%(fdev.split("/")[-1],str((endtime-starttime).seconds)))
         else:
             print("不使用特征抽取优化进行预测!")
             starttime = datetime.datetime.now()
@@ -34,7 +34,7 @@ if __name__ == '__main__':
             linear.create_feature_space()
             linear.Online_Training(iterations, max_iterations, average_perceptron, shuttle)
             endtime = datetime.datetime.now()
-            print("本次预测训练和预测%s所花费的总时间是：%s秒" % (fdev.split("/")[-1], str((endtime-starttime).seconds)))
+            print("本次训练和预测%s所花费的总时间是：%s秒" % (fdev.split("/")[-1], str((endtime-starttime).seconds)))
     else:
         print("使用小数据集进行训练和预测!")
         if(ys=="y"):
@@ -46,7 +46,7 @@ if __name__ == '__main__':
             linear.Online_Training(iterations,max_iterations,average_perceptron,shuttle)
             endtime = datetime.datetime.now()
             print(endtime)
-            print("本次预测训练和预测%s所花费的总时间是：%s秒"%(fdev.split("/")[-1],str((endtime-starttime).seconds)))
+            print("本次训练和预测%s所花费的总时间是：%s秒"%(fdev.split("/")[-1],str((endtime-starttime).seconds)))
         else:
             print("不使用特征抽取优化进行预测!")
             starttime = datetime.datetime.now()
@@ -54,7 +54,7 @@ if __name__ == '__main__':
             linear.create_feature_space()
             linear.Online_Training(iterations, max_iterations, average_perceptron, shuttle)
             endtime = datetime.datetime.now()
-            print("本次预测训练和预测%s所花费的总时间是：%s秒"%(fdev.split("/")[-1],str((endtime-starttime).seconds)))
+            print("本次训练和预测%s所花费的总时间是：%s秒"%(fdev.split("/")[-1],str((endtime-starttime).seconds)))
 
 
 
