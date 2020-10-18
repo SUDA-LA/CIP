@@ -218,7 +218,7 @@ class Log_Linear_Model_partial:
            """
             if (counter >= max_iterations):
                 break
-        print('第%d次迭代对应的开发集预测的准确率最高，最高的准确率为:%f' % (highest_accuracy_iterations, max_accuracy_rate))
+        print('第%d次迭代对应的开发集预测的准确率最高，最高的准确率为:%f' % (highest_accuracy_iterations+1, max_accuracy_rate))
 
 
 
