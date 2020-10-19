@@ -129,8 +129,9 @@ class LogLinearModel:
                 gradients[f_id] += probs
                 gradients[f_id, self.tag2id[golden_tag]] -= 1
 
+        self.weights *= (1 - learning_rate * lmbda / n)
         for key, gradient in gradients.items(): # 梯度下降法更新权重
-            self.weights[key] -= learning_rate * (gradient + lmbda * self.weights[key] / n)
+            self.weights[key] -= learning_rate * gradient
 
     def evaluate(self, dataset : DataLoader):
         """
