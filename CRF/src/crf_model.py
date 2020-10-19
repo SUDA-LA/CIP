@@ -220,8 +220,9 @@ class CRFModel:
                     for f_id in bi_f_id_list + uni_f_id_list:
                         gradients[f_id] += p
 
+        self.weights *= (1 - learning_rate * lmbda / n)
         for key, gradient in gradients.items(): # 梯度下降法更新权重
-            self.weights[key] -= learning_rate * (gradient + lmbda * self.weights[key] / n)
+            self.weights[key] -= learning_rate * gradient
 
         self.bi_scores = np.array([self.score(bfv) for bfv in self.bi_gram_features]) # 更新二元特征矩阵
 
