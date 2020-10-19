@@ -171,7 +171,7 @@ class CRFModel:
 
         return list(map(lambda x : self.tags[x],result[::-1]))
 
-    def gradient_descent(self, batch, learning_rate = 0.3, lmbda = 0.01):
+    def gradient_descent(self, batch, n, learning_rate = 0.3, lmbda = 0.01):
         """
         梯度下降法更新模型的权重
         :param lmbda: L2正则化系数
@@ -221,7 +221,7 @@ class CRFModel:
                         gradients[f_id] += p
 
         for key, gradient in gradients.items(): # 梯度下降法更新权重
-            self.weights[key] -= learning_rate * (gradient / batch_size + lmbda * self.weights[key])
+            self.weights[key] -= learning_rate * (gradient + lmbda * self.weights[key] / n)
 
         self.bi_scores = np.array([self.score(bfv) for bfv in self.bi_gram_features]) # 更新二元特征矩阵
 
@@ -265,13 +265,14 @@ class CRFModel:
             random.shuffle(self.train_set.sentences)
 
         batches = [self.train_set.sentences[i:i + batch_size] for i in range(0, len(self.train_set.sentences), batch_size)] # 划分batch
+        n = len(batches)
 
         for e in range(1, epoch + 1):
             print("第{:d}轮开始训练...".format(e))
 
             for batch in batches:
                 # 模拟退火，梯度更新次数越多，学习率越小，使模型凸优化时在最优处趋于稳定
-                self.gradient_descent(batch, learning_rate * decay_rate ** (step / global_step), lmbda)
+                self.gradient_descent(batch, n,learning_rate * decay_rate ** (step / global_step), lmbda)
                 step += 1
 
             print("本轮训练完成，进行评估...")
@@ -293,6 +294,3 @@ class CRFModel:
                 print("经过{:d}轮模型正确率无提升，结束训练！最大正确率为第{:d}轮训练后的{:f}".format(exitor, max_acc_epoch, max_acc))
                 break
             print()
-
-CRF = CRFModel(train_data_dir, dev_data_dir)
-CRF.mini_batch_train()
