@@ -26,7 +26,7 @@ embedding_freeze = False # 是否冻结词向量层
 
 activation = 'ReLU' # 隐藏层激活函数选择
 
-batch_size = 32 # 多少个样本更新一次权重
+batch_size = 50 # 多少个样本更新一次权重
 
 window = 5 # 上下文窗口大小
 
@@ -42,4 +42,4 @@ char_embed_dim = 100 # 字向量维度
 
 layer_sizes = [word_embed_dim * window, 300] # 神经元维度
 
-mode = 's' # 数据集选择
+mode = 'b' # 数据集选择
