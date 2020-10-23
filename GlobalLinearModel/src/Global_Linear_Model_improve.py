@@ -268,11 +268,6 @@ class Global_Linear_Model_improve:
                 break
         print('第%d次迭代对应的开发集预测的准确率最高，最高的准确率为:%f'%(highest_accuracy_iterations+1,max_accuracy_rate))
 
-if __name__ == '__main__':
-    m=Global_Linear_Model("train.conll","dev.conll")
-    m.create_feature_space()
-    m.Online_Training(50,10,shuffle=True,average_perceptron=True)
-
 
 
 
