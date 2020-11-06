@@ -1,4 +1,4 @@
-## √对数线性模型Log_Linear_Model
+## 对数线性模型Log_Linear_Model
 
 ### 一.目录结构
 
